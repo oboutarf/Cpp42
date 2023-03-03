@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 00:12:45 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/03 20:16:39 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/03 13:25:53 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/03 20:32:56 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include "Contact.hpp"
 # include <iostream>
-# include <string>
-# include <iomanip>
-#include <limits>
 
-
-class PhoneBook
+class Contact
 {
 	public:
-	PhoneBook();
-	~PhoneBook();
-	void 	AddContact( void );
-	void 	PrintContact( void );
-	void	SearchContact( void );
-
+	Contact();
+	~Contact();
+	void	SetContact();
+	void	PrintContact();
+	void	SearchPrinter();
 	private:
-	int		i;
-	int		count_contact;
-	Contact	rep[8];
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_number;
+	std::string darkest_secret;
 };
 
 #endif
+
+//  Operator OverLoad
+// std::ostream& operator<<(std::ostream& os, const Contact& dt)
+// {
+//     os << dt.mo << '/' << dt.da << '/' << dt.yr;
+//     return os;
+// }

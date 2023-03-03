@@ -6,15 +6,15 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 11:33:15 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/02 00:46:07 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/02 11:05:42 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	phonebook
 
-SRC			=	src/action.cpp \
-				src/contact.cpp \
-				src/phonebook.cpp
+SRC			=	Action.cpp \
+				Contact.cpp \
+				PhoneBook.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
