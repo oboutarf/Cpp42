@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 00:43:10 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/03 20:58:06 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/03 22:35:36 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	Contact::SetContact( void )
 	std::cin >> darkest_secret;
 	std::cout << "Contact has been added successfully" << std::endl;
 }
-
 
 void Contact::SearchPrinter(void)
 {
