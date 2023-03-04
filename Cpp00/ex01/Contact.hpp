@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 13:25:53 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/03 20:32:56 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/04 14:11:52 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,3 @@ class Contact
 };
 
 #endif
-
-//  Operator OverLoad
-// std::ostream& operator<<(std::ostream& os, const Contact& dt)
-// {
-//     os << dt.mo << '/' << dt.da << '/' << dt.yr;
-//     return os;
-// }
