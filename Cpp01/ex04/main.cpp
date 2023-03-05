@@ -6,18 +6,19 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:32:53 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/04 21:36:12 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/05 01:22:36 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream> 
+# include "Maestro.hpp"
 
-# define EXIT_SUCCESS 0
+int	main( int ac, char **av )	{
 
-int	main( void )	{
+	Maestro			Center;
 
-
-
+	if ( ac != 4 )
+		return ( std::cout << INVALID_ARG << std::endl, EXIT_FAILURE );
+	Center.openFile( av[1] );
 	return ( EXIT_SUCCESS );
 
 }

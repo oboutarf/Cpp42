@@ -6,13 +6,14 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:11:44 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/04 20:56:17 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/05 00:36:09 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	extract
 
-SRC			=	main.cpp
+SRC			=	main.cpp \
+				Maestro.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
