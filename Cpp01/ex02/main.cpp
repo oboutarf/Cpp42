@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:32:53 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/04 20:43:56 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:32:31 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main( void )	{
 	std::string	&stringREF = brainStr;
 
 	std::cout << "Source address of string: " << &brainStr << std::endl;
-	std::cout << "stringPtr address: " << &(*stringPTR) << std::endl;
+	std::cout << "stringPtr address: " << &( *stringPTR ) << std::endl;
 	std::cout << "stringRef address: " << &stringREF << std::endl;
 
 	std::cout << "Source string: " << brainStr << std::endl;

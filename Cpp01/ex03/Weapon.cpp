@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 21:36:01 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/04 23:16:59 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:37:01 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Weapon::Weapon( std::string instType ) : type( instType )	{
 
 }
 
-std::string&	Weapon::getType( void )		{
+const std::string&	Weapon::getType( void )		{
 
 	return ( type );
 

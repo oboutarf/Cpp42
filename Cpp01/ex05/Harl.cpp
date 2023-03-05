@@ -6,14 +6,13 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:15:36 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/05 19:57:50 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:59:29 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 Harl::Harl()	{
-
 
 	harlComplainer[0] = &Harl::debug;
 	harlComplainer[1] = &Harl::info;
@@ -27,8 +26,7 @@ void 	Harl::complain( std::string level )	{
 
 	std::string	tab[] =	{ "DEBUG", "INFO", "WARNING", "ERROR" };
 	for ( int i = 0; i < 4; i++ )
-		if ( !tab[i].compare( level ) )
-			(this->*harlComplainer[i])();
+		(!tab[i].compare( level ) ? (this->*harlComplainer[i])() :  (void)i );
 
 }
 

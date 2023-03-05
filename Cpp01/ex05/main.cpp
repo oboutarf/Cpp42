@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:10:52 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/05 19:02:13 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/05 20:51:22 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main( void )	{
 		if ( std::cin.eof() )
 			return ( std::cout << "See you!" << std::endl, EXIT_SUCCESS );
 	}
+	std::cout << std::endl;
 	Harl.complain( input );
 	std::cout << std::endl;
 	return ( EXIT_SUCCESS );

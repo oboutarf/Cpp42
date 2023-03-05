@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 17:15:36 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/05 19:02:13 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/05 21:01:18 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void 	Harl::complain( std::string level )	{
 
 	std::string	tab[] =	{ "DEBUG", "INFO", "WARNING", "ERROR" };
 	for ( int i = 0; i < 4; i++ )
-		if ( !tab[i].compare( level ) )
-			(this->*harlComplainer[i])();
+		(!tab[i].compare( level ) ? (this->*harlComplainer[i])() :  (void)i );
 
 }
 
