@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 21:25:39 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/07 15:16:34 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/05 21:25:42 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/07 16:48:15 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <string>
+#include "Fixed.hpp"
 
-# define EXIT_SUCCESS 0
-# define EXIT_FAILURE 1
-# define SUCCESS 1
-# define FAIL 0
+int	main( void )	{
 
-class	Fixed	{
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-public:
-	Fixed();
-	Fixed( const Fixed &origin );
-	~Fixed();
-	Fixed&	operator=( const Fixed& src );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 
-	int					getRawBits( void ) const;
-	void				setRawBits( int const raw );
+	return 0;
 
-private:
-	int					_n;
-	static const int	_nRest = 8;
-
-};
+}
