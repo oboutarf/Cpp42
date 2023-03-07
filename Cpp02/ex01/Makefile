@@ -6,11 +6,11 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:11:44 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/06 16:47:24 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/07 17:42:00 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	fixed
+NAME		=	fixp01
 
 SRC			=	main.cpp \
 				Fixed.cpp
@@ -21,9 +21,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o fixed
+EXE_NAME	=	-o fixp01
 
-EXEC		=	fixed
+EXEC		=	fixp01
 
 
 all: $(NAME)

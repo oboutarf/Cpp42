@@ -6,14 +6,16 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:11:44 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/07 17:42:32 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/07 17:44:11 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	fixp02
+NAME		=	bsp
 
 SRC			=	main.cpp \
-				Fixed.cpp
+				bsp.cpp \
+				Fixed.cpp \
+				Point.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -21,9 +23,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o fixp02
+EXE_NAME	=	-o bsp
 
-EXEC		=	fixp02
+EXEC		=	bsp
 
 
 all: $(NAME)

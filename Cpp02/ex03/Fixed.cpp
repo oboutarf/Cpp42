@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 21:25:37 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/07 17:37:49 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/07 18:39:50 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ Fixed	Fixed::operator+( const Fixed& src ) const	{
 
 Fixed	Fixed::operator-( const Fixed& src ) const	{
 
-	Fixed	op( toFloat() + src.toFloat() );
+	Fixed	op( toFloat() - src.toFloat() );
 
 	return ( op );
 
