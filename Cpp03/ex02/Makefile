@@ -6,14 +6,16 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:11:44 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/08 06:01:49 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/08 07:04:10 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ClapTrap
+NAME		=	FragTrap
 
 SRC			=	main.cpp \
-				ClapTrap.cpp
+				ClapTrap.cpp \
+				ScavTrap.cpp \
+				FragTrap.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -21,9 +23,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 
-EXE_NAME	=	-o ClapTrap
+EXE_NAME	=	-o FragTrap
 
-EXEC		=	ClapTrap
+EXEC		=	FragTrap
 
 
 all: $(NAME)

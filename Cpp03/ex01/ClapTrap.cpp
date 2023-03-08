@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:34:56 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 06:21:08 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 07:07:48 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,32 @@ ClapTrap::ClapTrap( ClapTrap& src )	{
 
 }
 
+/* **@ Constructor with ScavTrap params  ************************************ */
+
+ClapTrap::ClapTrap( std::string id, int HitPoints, int EnergyPoints, int AttackDamage ) : \
+	_name( id ), _HitPoints( HitPoints ), _AttackDamage( AttackDamage ), _EnergyPoints( EnergyPoints )	{
+
+	std::cout \
+	<< "ClapTrapper: " \
+	<< "\033[0;36m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " Constructor with ScavTrap params " \
+	<< std::endl;
+
+}
+
 /* **@ Constructor taking 'id' as parameter ********************************* */
 
 ClapTrap::ClapTrap( std::string id ) : \
 	_name( id ), _HitPoints( 10 ), _AttackDamage( 0 ), _EnergyPoints( 10 )	{
 
 	std::cout \
+	<< "ClapTrapper: " \
 	<< "\033[0;36m" \
-	<< "ClapTrapper: Copy Constructor has been called" \
+	<< _name \
 	<< "\033[0m" \
+	<< "default Constructor has been called" \
 	<< std::endl;
 
 }
@@ -161,5 +178,33 @@ void	ClapTrap::attack( const std::string& target )	{
 		<< std::endl;
 
 	}
+
+}
+
+/* ************************************************************************** */
+/*                                 Seekers                                    */
+/* ************************************************************************** */
+
+std::string		ClapTrap::recupName()	{
+
+	return ( _name );
+
+}
+
+int		ClapTrap::recupHitPoints()	{
+
+	return ( _HitPoints );
+
+}
+
+int		ClapTrap::recupAttackDamage()	{
+
+	return ( _AttackDamage );
+
+}
+
+int		ClapTrap::recupEnergyPoints()	{
+
+	return ( _EnergyPoints );
 
 }
