@@ -6,11 +6,12 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 06:03:47 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:15:53 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:51:32 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 /* ************************************************************************** */
 /*                                Color Manager                               */
@@ -33,7 +34,11 @@ ScavTrap::ScavTrap( void ) : \
 	ClapTrap( "", 100, 50, 20)	{
 
 	std::cout \
-	<< "ScavTrapper: Default Constructor has been called" \
+	<< "ScavTrapper: " \
+	<< "\033[0;36m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " Default Constructor has been called" \
 	<< std::endl;
 
 }
@@ -62,7 +67,7 @@ ScavTrap::ScavTrap( std::string id ) : \
 	std::cout \
 	<< "ScavTrapper: " \
 	<< "\033[0;36m" \
-	<< recupName() \
+	<< ScavTrap::_name \
 	<< "\033[0m" \
 	<< " Copy Constructor has been called" \
 	<< std::endl;
@@ -105,6 +110,37 @@ void	ScavTrap::guardGate( void )	{
 	<< recupName() \
 	<< "\033[0m" \
 	<<  " has entered in GateKeeper mode" \
+	<< std::endl;
+
+}
+
+void		ScavTrap::attack( const std::string& target )	{
+
+	if (_EnergyPoints && _HitPoints )	{ \
+\
+		_EnergyPoints -= 1;
+		std::cout \
+		<< "ScavTrap " \
+		<< "\033[1;32m" \
+		<< _name \
+		<< "\033[0m" \
+		<< " attacks " \
+		<< target \
+		<< " causing " \
+		<<  _AttackDamage \
+		<< " points of damage!" \
+		<< std::endl;
+		return ;
+
+	}
+	std::cout \
+	<< "ScavTrap " \
+	<< "\033[1;32m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " couldn't attack" \
+	<< target \
+	<< " because he didn't have enough EnergyPoints " \
 	<< std::endl;
 
 }

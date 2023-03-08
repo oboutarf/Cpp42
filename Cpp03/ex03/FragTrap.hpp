@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 07:17:31 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:20:41 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:47:40 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "ClapTrap.hpp"
 # include <iostream>
 
-class FragTrap : public ClapTrap 	{
+class FragTrap : virtual public ClapTrap 	{
 
 public:
 	FragTrap();
@@ -33,9 +33,6 @@ public:
 	void		highFivesGuys( void );
 
 protected:
-
-private:
-
 
 };
 

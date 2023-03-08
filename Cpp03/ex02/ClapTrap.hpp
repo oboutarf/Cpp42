@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:36:12 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 06:51:25 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:26:08 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
 	void		beRepaired(unsigned int amount);
 	void		attack(const std::string& target);
 
-private:
+protected:
 	std::string	_name;
 	int			_HitPoints;
 	int			_AttackDamage;

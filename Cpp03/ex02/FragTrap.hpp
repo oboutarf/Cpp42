@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 07:17:31 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:20:41 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:25:44 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ public:
 	void		highFivesGuys( void );
 
 protected:
-
-private:
 
 
 };

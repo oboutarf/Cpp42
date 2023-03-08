@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 06:03:47 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:14:09 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 23:15:21 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,37 @@ void	ScavTrap::guardGate( void )	{
 	<< recupName() \
 	<< "\033[0m" \
 	<<  " has entered in GateKeeper mode" \
+	<< std::endl;
+
+}
+
+void		ScavTrap::attack( const std::string& target )	{
+
+	if ( _EnergyPoints > 0 && _HitPoints > 0 )	{ \
+\
+		_EnergyPoints -= 1;
+		std::cout \
+		<< "ScavTrap " \
+		<< "\033[1;32m" \
+		<< _name \
+		<< "\033[0m" \
+		<< " attacks " \
+		<< target \
+		<< " causing " \
+		<<  _AttackDamage \
+		<< " points of damage!" \
+		<< std::endl;
+		return ;
+
+	}
+	std::cout \
+	<< "ScavTrap " \
+	<< "\033[1;32m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " couldn't attack" \
+	<< target \
+	<< " because he didn't have enough EnergyPoints " \
 	<< std::endl;
 
 }

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:34:39 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:30:21 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:38:39 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main( void )	{
 
-	ScavTrap	jon( "jon" );
+	FragTrap	jon( "jon" );
 	ClapTrap	robert( "robert" );
 	FragTrap	Florian( "Florian" );
 

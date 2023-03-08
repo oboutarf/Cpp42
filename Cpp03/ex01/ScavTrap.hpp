@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 05:58:08 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:16:21 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:28:56 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ public:
 	ScavTrap&	operator=( const ScavTrap& rhs );
 	void		guardGate( void );
 
+	void		attack( const std::string& target );
+
 protected:
-
-private:
-
 
 };
 

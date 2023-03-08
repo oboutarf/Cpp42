@@ -6,28 +6,32 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:34:39 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:30:21 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 23:05:05 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "DiamondTrap.hpp"
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 int main( void )	{
 
-	ScavTrap	jon( "jon" );
-	ClapTrap	robert( "robert" );
-	FragTrap	Florian( "Florian" );
+	DiamondTrap	scott("scott");
+	DiamondTrap	jon("jon");
 
-	jon.attack( "marius" );
-	Florian.beRepaired( 10 );
-	Florian.attack( "marius" );
-	robert.attack( "jon" );
-	jon.takeDamage( 5 );
-	robert.attack( "jon" );
-	jon.takeDamage( 1 );
-	Florian.highFivesGuys();
+	jon.attack( "scott" );
+	scott.highFivesGuys();
+
+	jon.beRepaired(100);
+	scott.highFivesGuys();
+	jon.attack( "scott");
+
+	jon.whoAmI();
+	jon.guardGate();
+	jon.attack( "scott" );
+	scott.whoAmI();
+
 
 	return ( EXIT_SUCCESS );
 

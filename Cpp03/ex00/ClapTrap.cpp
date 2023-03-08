@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:34:56 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 06:21:08 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 22:37:01 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,9 @@ ClapTrap::~ClapTrap( void )	{
 
 void	ClapTrap::takeDamage( unsigned int amount )	{
 
-	if ( _HitPoints )	{ \
+	if ( _HitPoints > 0 )	{ \
 \
-	_EnergyPoints -= amount;
+		_HitPoints -= amount;
 
 		std::cout \
 		<< "ClapTrap " \
@@ -118,18 +118,35 @@ void	ClapTrap::takeDamage( unsigned int amount )	{
 		<< amount \
 		<< " points of damage!" \
 		<< std::endl;
-		if ( !_EnergyPoints )
-			this->~ClapTrap();
+		if ( _HitPoints <= 0 )	{
+
+			std::cout \
+			<< "ClapTrap " \
+			<< "\033[1;32m" \
+			<< _name \
+			<< "\033[0m" \
+			<< " has been KO'd" \
+			<< std::endl;
+		}
+		return ;
+
 	}
+	std::cout \
+	<< "ClapTrap " \
+	<< "\033[1;32m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " cannot take damages anymore " \
+	<< "he's already been KO'd" \
+	<< std::endl;
 
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )	{
 
-	if ( _EnergyPoints )	{ \
+	if ( _EnergyPoints > 0 && _HitPoints > 0 )	{ \
 \
-		_EnergyPoints += amount;
-	
+		_HitPoints += amount;
 		std::cout \
 		<< "ClapTrap " \
 		<< "\033[1;32m" \
@@ -139,15 +156,25 @@ void	ClapTrap::beRepaired( unsigned int amount )	{
 		<< amount \
 		<< " energy points!" \
 		<< std::endl;
+		return ;
 	
 	}
+	std::cout \
+	<< "ClapTrap " \
+	<< "\033[1;32m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " cannot be repaired because " \
+	<< "he lacks EnergyPoints"
+	<< std::endl;
 
 }
 
 void	ClapTrap::attack( const std::string& target )	{
 
-	if ( _EnergyPoints )	{ \
+	if ( _EnergyPoints > 0 && _HitPoints > 0 )	{ \
 \
+		_EnergyPoints -= 1;
 		std::cout \
 		<< "ClapTrap " \
 		<< "\033[1;32m" \
@@ -159,7 +186,17 @@ void	ClapTrap::attack( const std::string& target )	{
 		<<  _AttackDamage \
 		<< " points of damage!" \
 		<< std::endl;
+		return ;
 
 	}
+	std::cout \
+	<< "ClapTrap " \
+	<< "\033[1;32m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " couldn't attack" \
+	<< target \
+	<< " because he didn't have enough EnergyPoints " \
+	<< std::endl;
 
 }

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 07:17:35 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 07:29:26 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:11:25 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ FragTrap::FragTrap( void ) : \
 	ClapTrap( "", 100, 100, 30)	{
 
 	std::cout \
-	<< "FragTrapper: Default Constructor has been called" \
+	<< "FragTrapper: " \
+	<< "\033[0;36m" \
+	<< _name \
+	<< "\033[0m" \
+	<< " Default Constructor has been called" \
 	<< std::endl;
 
 }
@@ -62,7 +66,7 @@ FragTrap::FragTrap( std::string id ) : \
 	std::cout \
 	<< "FragTrapper: " \
 	<< "\033[0;36m" \
-	<< recupName() \
+	<< FragTrap::_name \
 	<< "\033[0m" \
 	<< " Copy Constructor has been called" \
 	<< std::endl;
@@ -90,7 +94,7 @@ FragTrap::~FragTrap( void )	{
 	std::cout \
 	<< "FragTrapper: " \
 	<< "\033[1;31m" \
-	<< recupName() \
+	<< _name + "" \
 	<< "\033[0m" \
 	<< " Destructor has been called" \
 	<< std::endl;
@@ -102,7 +106,7 @@ void	FragTrap::highFivesGuys( void )	{
 	std::cout \
 	<< "FragTrapper: " \
 	<< "\033[1;33m" \
-	<< recupName() \
+	<< _name \
 	<< "\033[0m" \
 	<<  " is asking for a general High-Five!" \
 	<< std::endl;
