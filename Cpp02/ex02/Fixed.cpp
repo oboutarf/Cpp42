@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 21:25:37 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/07 17:37:49 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/08 00:52:22 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Fixed::Fixed( const int toFix ) : _n( toFix << this->_nRest )	{
 
 Fixed::Fixed( const float toFix ) : \
 	 _n( ( int )roundf( toFix * ( 1 << this->_nRest ) ) )	{
-
 
 }
 
@@ -142,7 +141,7 @@ Fixed	Fixed::operator/( const Fixed& src ) const	{
 
 	Fixed	op( toFloat() / src.toFloat() );
 
-	return ( op );
+	return ( op );ko
 
 }
 
@@ -243,7 +242,6 @@ std::ostream	&operator<<(std::ostream &out, const Fixed &pFix )	{
 // [ DefaultDestructor ]] //
 
 Fixed::~Fixed( void )	{
-
 
 }
 
