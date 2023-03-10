@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 22:34:56 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/08 21:55:53 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:44:08 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ void	ClapTrap::beRepaired( unsigned int amount )	{
 	if ( _EnergyPoints > 0 && _HitPoints > 0 )	{ \
 \
 		_HitPoints += amount;
+		_EnergyPoints -= 1;
 		std::cout \
 		<< "ClapTrap " \
 		<< "\033[1;32m" \
@@ -182,7 +183,7 @@ void	ClapTrap::beRepaired( unsigned int amount )	{
 	<< _name \
 	<< "\033[0m" \
 	<< " cannot be repaired because " \
-	<< "he lacks EnergyPoints"
+	<< "he has been Ko'd or he lacks of EnergyPoints" \
 	<< std::endl;
 
 }
@@ -213,7 +214,7 @@ void	ClapTrap::attack( const std::string& target )	{
 	<< "\033[0m" \
 	<< " couldn't attack" \
 	<< target \
-	<< " because he didn't have enough EnergyPoints " \
+	<< " because he has been Ko'd or he lacks of EnergyPoints" \
 	<< std::endl;
 
 }

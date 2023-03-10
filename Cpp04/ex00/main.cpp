@@ -5,29 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 22:34:39 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/09 15:20:14 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/10 01:08:20 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-int main( void )	{
+# include "Animal.hpp"
+# include "Cat.hpp"
+# include "Dog.hpp"
 
-	ScavTrap	jon("jon");
-	ClapTrap	robert("robert");
+int	main ( int ac, char **av )	{
+
+	Animal	PolyMorphed(" PolyMorpher ") ;
+	Animal	cat(" Cat ");
+	Animal	dog(" Dog ");
 
 
-	std::cout << jon.recupAttackDamage() << jon.recupEnergyPoints() << jon.recupHitPoints() << std::endl;
-
-	jon.attack("marius");
-	robert.attack("jon");
-	jon.takeDamage(5);
-	jon.guardGate();
-	robert.attack("jon");
-	jon.takeDamage(1);
-
+	PolyMorphed.makeSound();
+	cat.makeSound() ;
+	dog .makeSound() ;
 	return ( EXIT_SUCCESS );
-
+	( void )av;
+	( void )ac;
 }

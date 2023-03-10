@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 22:34:39 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/09 15:20:14 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/09 18:25:20 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/10 01:08:26 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main( void )	{
+# include "Animal.hpp"
+# include <iostream>
 
-	ScavTrap	jon("jon");
-	ClapTrap	robert("robert");
+class	Dog : public Animal	{
 
+public:
+	Dog();
+	Dog( const Dog& ref );
+	void	operator=( const Dog& rhs );
+	~Dog();
 
-	std::cout << jon.recupAttackDamage() << jon.recupEnergyPoints() << jon.recupHitPoints() << std::endl;
+	void	makeSound() const ;
 
-	jon.attack("marius");
-	robert.attack("jon");
-	jon.takeDamage(5);
-	jon.guardGate();
-	robert.attack("jon");
-	jon.takeDamage(1);
+};
 
-	return ( EXIT_SUCCESS );
-
-}
+#endif
