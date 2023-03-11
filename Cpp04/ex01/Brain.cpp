@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:10:37 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 01:19:44 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 02:59:12 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,18 @@
 Brain::Brain( void )	{
 
 	this->EducateBrain();
+
 	std::cout << "Brain default Constructor has been called" << std::endl;
 
 }
 
 Brain::Brain( const Brain& ref )	{
 
-	( void )ref;
+	for ( int i = 0; i < 100; i++ )
+		this->_ideas[i] = ref._ideas[i];
 
+	std::cout << " Brain copy Constructor has been called" << std::endl;
+	(void)ref;
 }
 
 std::string	Brain::haveIdea()	const {
@@ -33,10 +37,23 @@ std::string	Brain::haveIdea()	const {
 
 }
 
-void	Brain::operator=( const std::string& rhs )	{
+void	Brain::setNewIdea( int const & i, std::string const & NewIdea )	{
 
-	( void )rhs;
+	if ( i < 100 )
+		this->_ideas[i] = NewIdea;
+	else
+		std::cout << " Index given is too high for this brain... " << std::endl;
 
+}
+
+Brain&	Brain::operator=( const Brain& rhs )	{
+
+	for ( int i = 0; i < 100; i++ )
+		this->_ideas[i] = rhs._ideas[i];
+
+	std::cout << "Brain Assignement operator has been called" << std::endl;
+
+	return *this;
 }
 
 Brain::~Brain( void )	{

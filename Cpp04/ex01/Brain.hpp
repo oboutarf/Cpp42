@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:07:15 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 01:18:56 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 02:54:31 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ class Brain	{
 public:
 	Brain();
 	Brain( const Brain& ref );
-	void	operator=( const std::string& rhs );
+	Brain	&operator=( const Brain& rhs );
 	~Brain();
 	std::string	haveIdea( void ) const ;
+	void		setNewIdea( int const & i, std::string const & NewIdea );
 	void		EducateBrain( void );
 private:
 	std::string	*_ideas;
