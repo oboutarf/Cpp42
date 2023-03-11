@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 13:19:04 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 01:40:29 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,32 @@
 # include "Dog.hpp"
 # include "WrongAnimal.hpp"
 # include "WrongCat.hpp"
+# include "Brain.hpp"
 
 int	main ( void )	{
 
-	const WrongAnimal* meta = new WrongAnimal();
-	// const Animal* j = new Dog();
-	const WrongAnimal* i = new WrongCat();
+	const Animal	*Zoo[ ANIMAL_TOTAL ];
 
-	// std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	// j->makeSound();
-	meta->makeSound();
+	for ( int i = 0; i < ANIMAL_TOTAL ; i++ )	{
 
-	return 0;
+		if ( !i % 2 )
+			Zoo[i] = new Dog();
+		else
+			Zoo[i] = new Cat();
+	}
+	
+	// Dog		*AD = new Dog();
+	// Dog		*BD = new Dog();
+	Cat		*AC = new Cat();
+	Cat		*BC(AC);
+
+	std::cout << AC->haveIdea() << std::endl;
+	std::cout << BC->haveIdea() << std::endl;
+	
+	
+
+	
+
+
+
 }

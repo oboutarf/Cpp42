@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:18 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 01:24:38 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:45:13 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Dog::Dog( void )	{
 
 Dog::Dog( const Dog& ref )	{
 
-	( void )ref;
-	std::cout << "Dog copy Constructor called" << std::endl;
+	this->_type = ref._type;
+	std::cout << this->_type << " copy Constructor called" << std::endl;
 
 }
 
@@ -36,6 +36,7 @@ void	Dog::operator=( const Dog& rhs )	{
 void	Dog::makeSound() const	{
 
 	std::cout << "[ Woooofffff! Wooooffff! Woooffff! ]" << std::endl;
+
 }
 
 Dog::~Dog( void )	{

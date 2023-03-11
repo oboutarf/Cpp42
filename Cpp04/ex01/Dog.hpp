@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 13:19:04 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/09 18:25:20 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/11 01:34:49 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "Animal.hpp"
-# include "Cat.hpp"
-# include "Dog.hpp"
-# include "WrongAnimal.hpp"
-# include "WrongCat.hpp"
+# include "Brain.hpp"
+# include <iostream>
 
-int	main ( void )	{
+class	Dog : public Animal	{
 
-	const WrongAnimal* meta = new WrongAnimal();
-	// const Animal* j = new Dog();
-	const WrongAnimal* i = new WrongCat();
+public:
+	Dog();
+	Dog( const Dog& ref );
+	void	operator=( const Dog& rhs );
+	~Dog();
 
-	// std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	// j->makeSound();
-	meta->makeSound();
+	void	makeSound() const ;
 
-	return 0;
-}
+private:
+	Brain	*_brain;
+
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:09 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 13:05:00 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:20:27 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define FAILURE 0
 # define EXIT_FAILURE 1
 
+# define ANIMAL_TOTAL 2
+
 class	Animal	{
 
 public:
@@ -29,7 +31,7 @@ public:
 	Animal( const Animal& ref );
 	Animal( std::string name );
 	void	operator=( const Animal& rhs );
-	~Animal();
+	virtual ~Animal();
 	std::string		getType() const ;
 	virtual void	makeSound() const ;
 

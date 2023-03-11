@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 13:13:09 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:50:57 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Animal::Animal( void ) {
 Animal::Animal( std::string name )	{
 
 	this->_type = name;
-	std::cout << this->_type << " Constructor called with a name: " << name  << std::endl;
+	std::cout << "Animal Constructor called with a name: " << name  << std::endl;
 
 }
 
