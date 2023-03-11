@@ -6,34 +6,31 @@
 /*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:10:37 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 02:59:12 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/03/11 03:39:17 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
-
-#include <stdio.h>
 
 Brain::Brain( void )	{
 
 	this->EducateBrain();
 
 	std::cout << "Brain default Constructor has been called" << std::endl;
-
 }
 
 Brain::Brain( const Brain& ref )	{
 
+	this->_ideas = new std::string[100];
 	for ( int i = 0; i < 100; i++ )
 		this->_ideas[i] = ref._ideas[i];
 
 	std::cout << " Brain copy Constructor has been called" << std::endl;
-	(void)ref;
 }
 
 std::string	Brain::haveIdea()	const {
 
-	return (this->_ideas[5]);
+	return ( this->_ideas[5] );
 
 }
 
@@ -59,5 +56,4 @@ Brain&	Brain::operator=( const Brain& rhs )	{
 Brain::~Brain( void )	{
 
 	std::cout << "Brain Destructor has been called" << std::endl;
-
 }

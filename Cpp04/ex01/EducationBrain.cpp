@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EducationBrain.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:08:17 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 01:25:06 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 03:26:24 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	Brain::EducateBrain( void )	{
 
-	std::string	pot_ideas[100] = { "La vraie vie est si souvent celle qu’on ne vit pas.",
+	std::string	vortex[100] = { "La vraie vie est si souvent celle qu’on ne vit pas.",
 	"Quand on a tout perdu, quand on n'a plus d'espoir, La vie est un opprobre, et la mort un devoir.",
 	"La vie est une chose bien trop importante pour qu’on en parle sérieusement.",
 	"La vie est à monter et non pas à descendre.",
@@ -118,6 +118,6 @@ void	Brain::EducateBrain( void )	{
 	this->_ideas = new std::string[100];
 
 	for ( int i = 0; i < 100; i++)
-		this->_ideas[i] = pot_ideas[i];
+		this->_ideas[i] = vortex[i];
 
 }

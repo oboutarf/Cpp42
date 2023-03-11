@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 15:50:57 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 03:33:39 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 Animal::Animal( void ) {
 
 	this->_type = "Animal";
-	std::cout << this->_type << " default Constructor called " << std::endl;
 
+	std::cout << this->_type << " default Constructor called " << std::endl;
 }
 
 Animal::Animal( std::string name )	{
 
 	this->_type = name;
-	std::cout << "Animal Constructor called with a name: " << name  << std::endl;
 
+	std::cout << "Animal Constructor called with a name: " << name  << std::endl;
 }
 
 Animal::Animal( const Animal& ref )	{
 
-	*this = ref;
+	this->_type = ref._type;
 
+	std::cout << "Animal copy Constructor  has been called" << std::endl;
 }
 
 std::string	Animal::getType( void )	const {

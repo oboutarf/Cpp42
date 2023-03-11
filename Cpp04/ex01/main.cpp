@@ -6,7 +6,7 @@
 /*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 02:40:27 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/03/11 03:28:31 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	main ( void )	{
 	// 	else
 	// 		Zoo[i] = new Cat();
 	// }
-	
+
 	// Dog		*AD = new Dog();
 	// Dog		*BD = new Dog();
 	Cat		*AC = new Cat();
-	std::cout << "===============================" << std::endl;
 	Cat		BC(*AC);
 
+	std::cout << "===============================" << std::endl;
 	std::cout << AC->haveIdea() << std::endl;
 	std::cout << BC.haveIdea() << std::endl;
 	BC.setNewIdea( 5, "Hola Hola" );

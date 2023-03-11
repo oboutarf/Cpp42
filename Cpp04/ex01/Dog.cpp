@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:18 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 01:35:11 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 03:31:02 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Dog::Dog( const Dog& ref )	{
 
 	this->_type = ref._type;
 	this->_brain = new Brain;
+
 	std::cout << this->_type << " copy Constructor called" << std::endl;
 
 }
