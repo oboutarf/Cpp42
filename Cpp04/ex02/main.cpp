@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 18:02:14 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:39:20 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@
 
 int	main ( void )	{
 
-	const Animal	*Zoo[ ANIMAL_TOTAL ];
+	// const AAnimal	*Zoo[ ANIMAL_TOTAL ];
 
-	for ( int i = 0; i < ANIMAL_TOTAL ; i++ )	{
+	// for ( int i = 0; i < ANIMAL_TOTAL ; i++ )	{
 
-		if ( !i % 2 )
-			Zoo[i] = new Dog();
-		else
-			Zoo[i] = new Cat();
-	}
+	// 	if ( !i % 2 )
+	// 		Zoo[i] = new Dog();
+	// 	else
+	// 		Zoo[i] = new Cat();
+	// }
 	
-	for ( int i = 0; i < ANIMAL_TOTAL; i++ )
-		delete Zoo[i];
+	// for ( int i = 0; i < ANIMAL_TOTAL; i++ )
+	// 	delete Zoo[i];
 
 	// Dog		*AD = new Dog();
 	// Dog		*BD = new Dog();

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 12:59:21 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:25:48 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/11 19:07:59 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/11 21:19:39 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include "WrongAnimal.hpp"
-# include <iostream> 
-# include <string> 
+# include "Materia.hpp"
+# include "ICharacter.hpp"
 
-class WrongCat : public WrongAnimal	{
+class	Cure : public AMateria	{
 
 public:
-	WrongCat();
-	WrongCat( const WrongCat& ref );
-	void	operator=( const WrongCat& rhs );
-	~WrongCat();
-
-	void	makeSound() const;
+	Cure();
+	Cure( const Cure & ref );
+	Cure &	operator=( const Cure & rhs );
+	~Cure();
+	virtual AMateria*	clone() const ;
+	virtual void 		use( ICharacter & target );
 
 };
 

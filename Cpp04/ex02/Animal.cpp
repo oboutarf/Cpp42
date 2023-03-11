@@ -6,45 +6,49 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:45:48 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:34:11 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal( void ) {
+AAnimal::AAnimal( void ) {
 
-	this->_type = "Animal";
+	this->_type = "AAnimal";
+
 	std::cout << this->_type << " default Constructor called " << std::endl;
 }
 
-Animal::Animal( std::string name )	{
+AAnimal::AAnimal( std::string name )	{
 
 	this->_type = name;
-	std::cout << this->_type << " Constructor called with a name: " << name  << std::endl;
+
+	std::cout << "AAnimal Constructor called with a name: " << name  << std::endl;
 }
 
-Animal::Animal( const Animal& ref )	{
+AAnimal::AAnimal( const AAnimal& ref )	{
 
-	*this = ref;
+	this->_type = ref._type;
+
+	std::cout << "AAnimal copy Constructor  has been called" << std::endl;
 }
 
-std::string	Animal::getType( void )	const {
+std::string	AAnimal::getType( void )	const {
 
 	return ( this->_type );
 }
 
-void	Animal::operator=( const Animal& rhs )	{
+void	AAnimal::operator=( const AAnimal& rhs )	{
 
 	this->_type = rhs._type;
 }
 
-void	Animal::makeSound()	const {
+void	AAnimal::makeSound()	const {
 
-	std::cout << "[ Animal noise ( ... ) ]" << std::endl;
+	std::cout << "[ AAnimal noise ( ... ) ]" << std::endl;
 }
 
-Animal::~Animal( void )	{
+AAnimal::~AAnimal( void )	{
 
-	std::cout << " Animal Destructor called " << std::endl;
+	std::cout << " AAnimal Destructor called " << std::endl;
 }

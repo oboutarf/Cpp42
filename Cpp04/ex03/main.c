@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongWrongCat.hpp                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 12:59:21 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:25:48 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/11 18:41:35 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/11 21:23:49 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#include "Materia.hpp"
 
-# include "WrongAnimal.hpp"
-# include <iostream> 
-# include <string> 
+int main( int ac, char **av )	{
 
-class WrongCat : public WrongAnimal	{
+	return ( EXIT_SUCCESS );
 
-public:
-	WrongCat();
-	WrongCat( const WrongCat& ref );
-	void	operator=( const WrongCat& rhs );
-	~WrongCat();
-
-	void	makeSound() const;
-
-};
-
-#endif
+}

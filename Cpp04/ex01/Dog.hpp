@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:20 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 01:34:49 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:28:04 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ public:
 	Dog( const Dog& ref );
 	void	operator=( const Dog& rhs );
 	~Dog();
-
-	void	makeSound() const ;
+	std::string	haveIdea( int const & i ) const ;
+	void		makeSound() const ;
+	void		setNewIdea( int const & i, std::string const & NewIdea );
 
 private:
 	Brain	*_brain;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 03:33:39 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/03/11 17:39:31 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,19 @@ Animal::Animal( const Animal& ref )	{
 std::string	Animal::getType( void )	const {
 
 	return ( this->_type );
-
 }
 
 void	Animal::operator=( const Animal& rhs )	{
 
 	this->_type = rhs._type;
-
 }
 
 void	Animal::makeSound()	const {
 
 	std::cout << "[ Animal noise ( ... ) ]" << std::endl;
-
 }
 
 Animal::~Animal( void )	{
 
 	std::cout << " Animal Destructor called " << std::endl;
-
 }

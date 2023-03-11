@@ -6,13 +6,13 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:13 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:38:54 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:33:49 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat( void ) : Animal( "Cat" ) 	{
+Cat::Cat( void ) : AAnimal( "Cat" ) 	{
 
 	this->_brain = new Brain();
 

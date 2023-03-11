@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Materia.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 18:25:09 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:39:54 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/11 18:43:56 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/11 23:46:00 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef MATERIA_HPP
+# define MATERIA_HPP
 
 # include <string>
 # include <iostream>
+# include "ICharacter.hpp"
 
-# define SUCCESS 1
 # define EXIT_SUCCESS 0
-
-# define FAILURE 0
 # define EXIT_FAILURE 1
 
-# define ANIMAL_TOTAL 2
+# define FAILURE 0
+# define SUCCESS 1
 
-class	Animal	{
+class AMateria	{
 
 public:
-	Animal();
-	Animal( const Animal& ref );
-	Animal( std::string name );
-	virtual ~Animal();
-	std::string		getType() const ;
-	virtual void	makeSound() const ;
-	void			operator=( const Animal& rhs );
+	AMateria();
+	AMateria( std::string const & type );
+	AMateria( const AMateria & ref );
+	virtual ~AMateria();
+	AMateria &			operator=( const AMateria & rhs );
+	virtual AMateria*	clone() const = 0;
+	std::string const &	getType() const; //Returns the materia type
+	virtual void 		use( ICharacter& target );
 
 protected:
 	std::string	_type;

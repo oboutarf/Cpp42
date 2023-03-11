@@ -6,18 +6,18 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:11:44 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/11 18:06:58 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/11 21:19:20 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	brain
+NAME		=	abstract
 
-SRC			=	main.cpp \
-				Dog.cpp \
-				Cat.cpp \
-				Animal.cpp \
-				WrongCat.cpp \
-				WrongAnimal.cpp \
+SRC			=	Ice.cpp \
+				main.cpp \
+				Cure.cpp \
+				Materia.cpp \
+				ICharacter.cpp
+				
 
 OBJS		=	$(SRC:.cpp=.o)
 
@@ -25,9 +25,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Wshadow -Wno-shadow -Werror -g3 -std=c++98 -fstandalone-debug
 
-EXE_NAME	=	-o brain
+EXE_NAME	=	-o abstract
 
-EXEC		=	brain
+EXEC		=	abstract
 
 
 all: $(NAME)
