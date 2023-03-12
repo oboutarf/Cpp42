@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/09 18:25:20 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:33:36 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/12 17:14:42 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/12 17:15:34 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Bureaucrat.hpp"
 
-# include "Animal.hpp"
-# include <iostream>
+int	main( void )	{
 
-class	Dog : public Animal	{
+	Bureaucrat	general;
 
-public:
-	Dog();
-	Dog( const Dog& ref );
-	Dog &	operator=( const Dog& rhs );
-	~Dog();
-	virtual void	makeSound() const ;
-
-};
-
-#endif
+	return (0);
+}

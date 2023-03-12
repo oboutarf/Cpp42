@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:59:14 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:45:31 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:38:26 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,25 @@
 
 WrongAnimal::WrongAnimal()	{
 
-	this->_type = "WrongAnimal";
-	std::cout << this->_type << " default Constructor has been called" << std::endl;
+	this->getType() = "WrongAnimal";
+	std::cout << this->getType() << " default Constructor has been called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( const WrongAnimal& ref )	{
 
-	this->_type = ref._type;
+	this->_type = ref.getType();
 }
 
-void	WrongAnimal::operator=( const WrongAnimal& rhs )	{
+WrongAnimal &	WrongAnimal::operator=( const WrongAnimal& rhs )	{
 
-	this->_type = rhs._type;
+	this->_type = rhs.getType();
+	std::cout << "WrongAnimal assignement operator called" << std::endl;
+	return *this ;
 }
 
 std::string	WrongAnimal::getType( void ) const {
 
-	return ( this->_type );
+	return this->_type ;
 }
 
 void	WrongAnimal::makeSound( void )	const {
@@ -40,5 +42,5 @@ void	WrongAnimal::makeSound( void )	const {
 
 WrongAnimal::~WrongAnimal()	{
 
-	std::cout << this->_type << " WrongAnimal Destructor has been called" << std::endl;
+	std::cout << this->getType() << " WrongAnimal Destructor has been called" << std::endl;
 }

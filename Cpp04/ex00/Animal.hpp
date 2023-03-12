@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:09 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 13:05:00 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:21:49 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ public:
 	Animal();
 	Animal( const Animal& ref );
 	Animal( std::string name );
-	void	operator=( const Animal& rhs );
-	~Animal();
-	std::string		getType() const ;
-	virtual void	makeSound() const ;
+	Animal &	operator=( const Animal& rhs );
+	virtual ~Animal();
+	virtual std::string		getType() const ;
+	virtual void			makeSound() const ;
 
 protected:
 	std::string	_type;

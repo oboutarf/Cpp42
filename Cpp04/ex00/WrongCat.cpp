@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:59:19 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:30:03 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:38:15 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 WrongCat::WrongCat( void )	{
 
-	this->_type = "WrongCat";
+	this->getType() = "WrongCat";
 
-	std::cout << this->_type << " default Constructor called" << std::endl;
+	std::cout << this->getType() << " default Constructor called" << std::endl;
 }
 
 WrongCat::WrongCat( const WrongCat& ref )	{
 
-	this->_type = ref._type;
+	this->getType() = ref.getType();
 
-	std::cout << this->_type << " copy Constructor called" << std::endl;
+	std::cout << this->getType() << " copy Constructor called" << std::endl;
 }
 
-void	WrongCat::operator=( const WrongCat& rhs )	{
+WrongCat &	WrongCat::operator=( const WrongCat& rhs )	{
 
-	this->_type = rhs._type;
-
+	this->getType() = rhs.getType();
 	std::cout << "WrongCat assignement operator called" << std::endl;
+	return *this ;
 }
 
 void	WrongCat::makeSound() const	{

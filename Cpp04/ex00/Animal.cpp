@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:45:48 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:35:14 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,27 @@ Animal::Animal( std::string name )	{
 
 Animal::Animal( const Animal& ref )	{
 
-	*this = ref;
+	*this = ref.getType() ;
 }
 
 std::string	Animal::getType( void )	const {
 
-	return ( this->_type );
+	return this->_type ;
 }
 
-void	Animal::operator=( const Animal& rhs )	{
+Animal &	Animal::operator=( const Animal& rhs )	{
 
-	this->_type = rhs._type;
+	this->_type = rhs.getType();
+	std::cout << "Animal assignement operator called" << std::endl;
+	return *this ;
 }
 
 void	Animal::makeSound()	const {
 
-	std::cout << "[ Animal noise ( ... ) ]" << std::endl;
+	std::cout << "[* Animal default noise *]" << std::endl;
 }
 
 Animal::~Animal( void )	{
 
-	std::cout << " Animal Destructor called " << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }

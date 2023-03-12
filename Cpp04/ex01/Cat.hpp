@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:15 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:20:39 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:45:18 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class	Cat : public Animal	{
 public:
 	Cat();
 	Cat( const Cat& ref );
-	void	operator=( const Cat& rhs );
-	~Cat();
+	Cat &	operator=( const Cat& rhs );
+	virtual ~Cat();
 	std::string	haveIdea( int const & i ) const ;
 	void		makeSound() const ;
 	void		setNewIdea( int const & i, std::string const & NewIdea );

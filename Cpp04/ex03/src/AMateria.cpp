@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:43:49 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 11:35:36 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:26:32 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 AMateria::AMateria( void ) : _type(" null ")	{
 
-	std::cout << " Amateria default constructor called" << std::endl;
+	std::cout << "Amateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria( const AMateria & ref ) : _type( ref._type)	{

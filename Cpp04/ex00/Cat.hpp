@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:15 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 01:10:13 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:24:29 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class	Cat : public Animal	{
 public:
 	Cat();
 	Cat( const Cat& ref );
-	void	operator=( const Cat& rhs );
+	Cat &	operator=( const Cat& rhs );
 	~Cat();
-	void	makeSound() const ;
+	virtual void	makeSound() const ;
 
 };
 

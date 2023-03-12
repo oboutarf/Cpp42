@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 02:04:34 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 03:56:01 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 18:52:11 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ public:
 	MateriaSource();
 	MateriaSource( MateriaSource const & ref );
 	virtual ~MateriaSource();
-
 	MateriaSource & 	operator=( MateriaSource const & rhs );
+
 	virtual void 		learnMateria( AMateria* );
 	virtual AMateria* 	createMateria( std::string const & type );
 

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 01:44:38 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 11:14:32 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 21:50:34 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ public:
 
 private:
 	AMateria*	_bagPack[4];
+	int			_toUse;
 	AMateria*	_usedHistory[ MATERIA_TOTAL ];
 	int			_countHistory;
-	int			_toUse;
 	std::string	_name;
 
 }; 
+
 
 #endif

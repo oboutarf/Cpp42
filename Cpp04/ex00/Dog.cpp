@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:18 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 17:46:18 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:36:42 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,20 @@
 Dog::Dog( void )	{
 
 	this->_type = "Dog";
-
-	std::cout << this->_type << " default Constructor called" << std::endl;
+	std::cout << this->getType() << " default Constructor called" << std::endl;
 }
 
 Dog::Dog( const Dog& ref )	{
 
-	this->_type = ref._type;
-
-	std::cout << this->_type << " copy Constructor called" << std::endl;
+	this->_type = ref.getType();
+	std::cout << this->getType() << " copy Constructor called" << std::endl;
 }
 
-void	Dog::operator=( const Dog& rhs )	{
+Dog &	Dog::operator=( const Dog & rhs ) {
 
-	this->_type = rhs._type;
-
-	std::cout << "Dog assignement operator called" << std::endl;
+	this->_type = rhs.getType();
+	std::cout << "Cat assignement operator called" << std::endl;
+	return *this ;
 }
 
 void	Dog::makeSound() const	{

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:59:21 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/10 14:25:28 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 23:37:31 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongCat : public WrongAnimal	{
 public:
 	WrongCat();
 	WrongCat( const WrongCat& ref );
-	void	operator=( const WrongCat& rhs );
+	WrongCat &	operator=( const WrongCat& rhs ) ;
 	~WrongCat();
 
 	void	makeSound() const;

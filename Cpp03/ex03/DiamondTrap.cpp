@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 07:58:35 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/09 15:23:10 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 17:33:03 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include <stdio.h>
-
-// int	states[3] = { FragTrap::recupHitPoints(), ScavTrap::recupEnergyPoints(), FragTrap::recupAttackDamage()}
-
 
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap( ( name + "_clap_name" ), 100, 50, 30 )	{
 
