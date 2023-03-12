@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Materia.cpp                                        :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:43:49 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/11 21:20:14 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/12 11:35:36 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Materia.hpp"
+#include "AMateria.hpp"
 
 AMateria::AMateria( void ) : _type(" null ")	{
 
@@ -24,16 +24,15 @@ AMateria::AMateria( const AMateria & ref ) : _type( ref._type)	{
 
 AMateria &	AMateria::operator=( const AMateria & rhs )	{
 
-	this->_type = rhs._type;
-
+	( void )rhs;
 	std::cout << "AMateria assignement operator called" << std::endl;
-	return ( *this );
+	return *this ;
 }
 
 AMateria::AMateria( std::string const & type ) : _type( type )	{
 
 	std::cout << " Amateria default constructor called with type: [ " \
-	<< _type << " ]"<< std::endl;
+		<< _type << " ]" << std::endl;
 }
 
 AMateria::~AMateria( void )	{
@@ -45,6 +44,7 @@ AMateria::~AMateria( void )	{
 
 AMateria*	AMateria::clone() const	{
 
+	return ( NULL );
 }
 
 void	AMateria::use( ICharacter& target )	{
@@ -54,5 +54,5 @@ void	AMateria::use( ICharacter& target )	{
 
 std::string const &	AMateria::getType() const	{
 
-	return ( this->_type );
+	return this->_type ;
 }
