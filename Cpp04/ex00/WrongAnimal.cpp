@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:59:14 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:38:26 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:35:18 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongAnimal::WrongAnimal()	{
 
-	this->getType() = "WrongAnimal";
+	this->_type = "WrongAnimal";
 	std::cout << this->getType() << " default Constructor has been called" << std::endl;
 }
 

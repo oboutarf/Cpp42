@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:39:06 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 12:15:26 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,19 @@ int	main ( void )	{
 
 	const WrongAnimal* meta = new WrongAnimal();
 	const Animal* j = new Dog();
+	const Animal* k = new Cat();
 	const WrongAnimal* i = new WrongCat();
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
+	k->makeSound();
 	j->makeSound();
 	meta->makeSound();
 
+	delete i;
+	delete k;
+	delete j;
+	delete meta;
 	return 0;
 }

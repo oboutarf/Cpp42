@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:41:35 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:13:52 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:37:10 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ int main()
 	Character1->unequip(2);
 	Character1->unequip(3);
 	SEPARATOR
-	Character1 = Character2;
 	delete Character2;
-
-	// delete Character2;
+	delete Character1;
 	SEPARATOR
 	delete src;
 	delete tmp1;

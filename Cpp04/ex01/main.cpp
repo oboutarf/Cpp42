@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:22 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:49:50 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:32:26 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,9 @@ int	main ( void )	{
 	delete BD;
 	SEPARATOR
 	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	i = j;
+	const Animal* i = new Dog();
 	SEPARATOR
-	delete j; //should not create a leak
-	// delete i;
-	SEPARATOR
-
+	delete j ; // should not create a leak
+	delete i;
 	return ( EXIT_SUCCESS );
 }

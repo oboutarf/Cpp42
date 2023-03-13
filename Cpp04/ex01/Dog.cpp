@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:18 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:44:54 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:29:03 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	Dog::setNewIdea( int const & i, std::string const & NewIdea )	{
 	this->_brain->setNewIdea( i, NewIdea );
 }
 
-Dog &	Dog::operator=( const Dog& rhs )	{
+Dog &	Dog::operator=( const Dog & rhs )	{
 
-	this->_type = rhs._type;
-	delete this->_brain;
-	this->_brain = new Brain( *rhs._brain );
+	this->~Dog();
+	this->_brain = new Brain( *rhs._brain ) ;
+	this->_type = rhs.getType() ;
 	std::cout << "Dog assignement operator called" << std::endl;
 	return  *this ;
 }

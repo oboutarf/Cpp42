@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 02:04:15 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 22:42:32 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:41:36 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,16 @@ MateriaSource::MateriaSource( void )	{
 
 MateriaSource::MateriaSource( MateriaSource const & ref )	{
 
-	( void )ref;
+	*this = ref ;
 	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
 MateriaSource & 	MateriaSource::operator=( MateriaSource const & rhs )	{
 
-	( void )rhs;
+	this->~MateriaSource();
+	for ( int i = 0; i < 4; i++ )
+		this->_materiaSource[i] = rhs._materiaSource[i] ;
+	this->_inventory = rhs._inventory ;
 	std::cout << "MateriaSource constructor called" << std::endl;
 	return *this ;
 }

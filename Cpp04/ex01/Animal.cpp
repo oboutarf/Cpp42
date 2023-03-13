@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:25:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:48:53 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:20:35 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ std::string	Animal::getType( void )	const {
 
 Animal &	Animal::operator=( const Animal& rhs )	{
 
+	// this->_type = rhs.getType();
+	this->~Animal();
 	this->_type = rhs.getType();
+	std::cout << "Animal assignement operator has been called" << std::endl;
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 12:59:19 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 23:38:15 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:35:35 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat( void )	{
 
-	this->getType() = "WrongCat";
+	this->_type = "WrongCat";
 
 	std::cout << this->getType() << " default Constructor called" << std::endl;
 }
