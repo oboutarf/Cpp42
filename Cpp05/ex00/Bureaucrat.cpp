@@ -6,67 +6,77 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:16:01 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/12 18:10:24 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:44:56 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()	{
+char const	*Bureaucrat::GradeTooHighException::what(void) const throw()	{
+	return ("INVALID::Bureaucrat: grade is too high, try again!");
+}
 
-	std::cout << "Bureaucrat constructor called" << std::endl;
+char const	*Bureaucrat::GradeTooLowException::what(void) const throw()	{
+	return ("INVALID::Bureaucrat: grade is too low, try again!");
+}
+
+Bureaucrat::Bureaucrat()	{
+	std::cout << "Bureaucrat: default constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name( name )	{
+
+	if ( grade <= 0 )
+		throw Bureaucrat::GradeTooLowException();
+	if ( grade > 150 )
+		throw Bureaucrat::GradeTooHighException();
+	this->_grade = grade ;
+	std::cout << "Bureaucrat: constructor called [ name: " << this->getName() << "] [ grade: " << this->getGrade() << " ]" << std::endl;
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat & ref )	{
-
 	( void )ref;
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	std::cout << "Bureaucrat: copy constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()	{
-
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat: destructor called" << std::endl;
 }
-
 
 Bureaucrat &	Bureaucrat::operator=( const Bureaucrat & rhs )	{
-	( void )rhs;
+	this->_grade = rhs.getGrade() ;
+	return *this ;
 }
 
-std::string const &	Bureaucrat::getName( void )	{
-
+std::string const &	Bureaucrat::getName( void )	const {
 	return this->_name ;
 }
 
-unsigned int	Bureaucrat::getGrade( void )	{
-
+unsigned int	Bureaucrat::getGrade( void )	const {
 	return this->_grade ;
 }
 
 void	Bureaucrat::upGrade( void )	{
 
-	this->_grade--;
-	if ( !this->_grade )	{
-	
-		this->_grade++;
-		std::cout << "Can't upgrade " << this->getName() \
-			<< ", he has already the max grade" <<  std::endl; 
+	if ( !(this->getGrade() - 1) )	{
+		throw Bureaucrat::GradeTooHighException();
 		return ;
 	}
-	std::cout << this->getName() << " has been upgraded" << std::endl;
-
+	this->_grade--;
+	std::cout << "UPGRADE::Bureaucrat: " <<  this->getName() << " has been successfully been upgraded to rank [ " << this->getGrade() << " ]" << std::endl;
 }
 
 void	Bureaucrat::downGrade( void )	{
 
-	this->_grade++;
-	if ( this->_grade == 150 )	{
-
-		this->_grade--;
-		std::cout << "Can't downgraded " << this->getName() \
-			<< ", he has already the min grade" <<  std::endl; 
+	if (this->getGrade() == GRADE_LIMIT ) 	{
+		throw Bureaucrat::GradeTooLowException();
 		return ;
 	}
-	std::cout << this->getName() << " has been downgraded" << std::endl;
+	this->_grade++;
+	std::cout << "DOWNGRADE::Bureaucrat: " <<  this->getName() << " has been successfully been downgraded to rank [ " << this->getGrade() << " ]" << std::endl;
+}
 
+std::ostream	&operator<<(std::ostream & out, const Bureaucrat & B )	{
+	out << B.getName() << ", bureaucrat grade " << B.getGrade() << "." << std::endl;
+	return out ;
 }
