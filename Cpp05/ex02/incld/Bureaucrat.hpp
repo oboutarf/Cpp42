@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 16:10:00 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/14 22:02:16 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 04:39:25 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ public:
 	void				signForm( Form & toSign );
 
 private:
-	std::string	const _name;
+	std::string	const	_name;
 	unsigned int		_grade;
 
 };

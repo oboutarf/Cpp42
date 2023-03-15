@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:34:56 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/14 22:13:27 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 05:13:31 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,19 @@ public:
 	Form();
 	Form( Form const & ref );
 	Form( std::string name, unsigned int gradeToSign, unsigned int gradeToExecute );
-	Form &	operator=( Form const & rhs );
-	~Form();
+	virtual Form &	operator=( Form const & rhs );
+	virtual ~Form();
 
 	class	GradeTooLowException;
 	class	GradeTooHighException;
 	class	BureaucratSignedAlready;
 
-	std::string	const	getName() const	;
-	bool				checkStatus() const	;
-	unsigned int		getGradeToSign() const	;
-	unsigned int		getGradeToExecute() const	;
-	void				beSigned( Bureaucrat & target );
+	virtual std::string	const	getName() const	;
+	virtual bool				checkStatus() const	;
+	virtual unsigned int		getGradeToSign() const	;
+	virtual unsigned int		getGradeToExecute() const	;
+	virtual void				beSigned( Bureaucrat & target );
+	virtual void				execute( Bureaucrat const & executor ) = 0;
 
 private:
 	std::string const 	_name;
