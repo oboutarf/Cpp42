@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:16:01 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/15 00:52:47 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:06:49 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,18 @@ void	Bureaucrat::downGrade( void )	{
 	std::cout << "DOWNGRADE::Bureaucrat: " <<  this->getName() << " has been successfully been downgraded to rank [ " << this->getGrade() << " ]" << std::endl;
 }
 
-void	Bureaucrat::signForm( Form & toSign )	{
+void	Bureaucrat::signForm( Form & toSign ) const	{
 	try	{
 		toSign.beSigned( *this );
 		std::cout << this->getName() << " signed " << toSign.getName() << std::endl;
 	}
 	catch(const std::exception& e)	{
 		std::cerr << this->getName() << " couldn't sign " << toSign.getName() << " because " << e.what() <<  std::endl;
-
 	}
+}
+
+void	Bureaucrat::executeForm( Form & toExec ) const	{
+	std::cout << this->getName() << " executed " << toExec.getName() << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream & out, const Bureaucrat & B )	{

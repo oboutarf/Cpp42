@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 16:10:00 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/15 04:39:25 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:30:38 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ public:
 	unsigned int 		getGrade()	const ;
 	void				upGrade();
 	void				downGrade();
-	void				signForm( Form & toSign );
+	void				signForm( Form & toSign ) const	;
+	void				executeForm( Form & toExec ) const	;
 
 private:
 	std::string	const	_name;

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:34:56 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/15 05:13:31 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:06:26 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ public:
 	Form();
 	Form( Form const & ref );
 	Form( std::string name, unsigned int gradeToSign, unsigned int gradeToExecute );
+	Form( std::string name, std::string target, unsigned int gradeToSign, unsigned int gradeToExecute );
 	virtual Form &	operator=( Form const & rhs );
 	virtual ~Form();
 
@@ -29,15 +30,18 @@ public:
 	class	GradeTooHighException;
 	class	BureaucratSignedAlready;
 
-	virtual std::string	const	getName() const	;
-	virtual bool				checkStatus() const	;
-	virtual unsigned int		getGradeToSign() const	;
-	virtual unsigned int		getGradeToExecute() const	;
-	virtual void				beSigned( Bureaucrat & target );
+	
+	std::string	const			getName() const	;
+	std::string					getTarget() const ;
+	bool						checkStatus() const	;
+	unsigned int				getGradeToSign() const	;
+	unsigned int				getGradeToExecute() const	;
+	void						beSigned( Bureaucrat const & target ) ;
 	virtual void				execute( Bureaucrat const & executor ) = 0;
 
-private:
+protected:
 	std::string const 	_name;
+	std::string const 	_target;
 	bool				_isSigned;
 	unsigned int		_gradeToSign;
 	unsigned int		_gradeToExecute;

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:29:33 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/15 00:51:30 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:06:21 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Form::Form( Form const & ref ) : _name(ref.getName())	{
 	std::cout << "Form: copy constructor called" << std::endl;
 }
 
-void	Form::beSigned( Bureaucrat & target )	{
+void	Form::beSigned( Bureaucrat const & target )	{
 	if ( this->checkStatus() )	{
 		throw Form::BureaucratSignedAlready() ;
 		return ;
@@ -62,6 +62,17 @@ Form::Form( std::string name, unsigned int gradeToSign, unsigned int gradeToExec
 	std::cout << "Form: constructor called, name: [" << this->getName() << "]; grade to execute: [" << this->getGradeToExecute() << "]; grade to sign: [" << this->getGradeToSign() << "]." << std::endl;
 }
 
+Form::Form( std::string name, std::string target, unsigned int gradeToSign, unsigned int gradeToExecute ) : _name(name), _target(target)	{
+	if (gradeToSign <= 0 || gradeToExecute <= 0 )
+		throw Form::GradeTooHighException() ;
+	if (gradeToSign > 150 || gradeToExecute > 150 )
+		throw Form::GradeTooLowException() ;
+	this->_isSigned = false;
+	this->_gradeToSign = gradeToSign;
+	this->_gradeToExecute = gradeToExecute;
+	std::cout << "Form: constructor called, name: [" << this->getName() << "] target: [" << this->getTarget() << "] ;grade to execute: [" << this->getGradeToExecute() << "]; grade to sign: [" << this->getGradeToSign() << "]." << std::endl;
+}
+
 Form &	Form::operator=( Form const & rhs )	{
 	this->_isSigned = rhs.checkStatus() ;
 	this->_gradeToSign = rhs.getGradeToSign() ;
@@ -83,6 +94,10 @@ unsigned int	Form::getGradeToExecute( void ) const	{
 
 unsigned int	Form::getGradeToSign( void ) const	{
 	return this->_gradeToSign ;
+}
+
+std::string		Form::getTarget( void ) const {
+	return this->_target;
 }
 
 bool	Form::checkStatus( void ) const	{
