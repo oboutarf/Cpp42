@@ -6,11 +6,12 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:14:42 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/15 18:27:16 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/17 07:07:08 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -46,7 +47,8 @@ int	main( void )	{
 	Form	*j = new RobotomyRequestForm(target);
 	i->execute( Boss );
 	j->execute( Slave );
-
+	Form	*k = new ShrubberyCreationForm(target);
+	k->execute(Boss);
 	delete j;
 	delete i;
 	return (0);
