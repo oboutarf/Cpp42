@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:29:33 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/14 22:34:43 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:54:24 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char const	*Form::BureaucratSignedAlready::what(void) const throw()	{
 }
 
 Form::Form( void ) : _name("garbage")	{
-
 	this->_isSigned = false ;
 	this->_gradeToSign = 150 ;
 	this->_gradeToExecute = 150 ;
@@ -89,7 +88,7 @@ unsigned int	Form::getGradeToSign( void ) const	{
 
 bool	Form::checkStatus( void ) const	{
 	if ( !this->_isSigned )
-		return false ;
+		return false ; 
 	return true ;
 }
 

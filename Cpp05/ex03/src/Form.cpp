@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:29:33 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/19 15:47:04 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:06:21 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ std::string const	Form::getName( void ) const	{
 unsigned int	Form::getGradeToExecute( void ) const	{
 	return this->_gradeToExecute ;
 }
-
 
 unsigned int	Form::getGradeToSign( void ) const	{
 	return this->_gradeToSign ;

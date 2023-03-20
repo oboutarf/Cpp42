@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:16:01 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/19 14:42:14 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/19 15:49:47 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,16 @@ Bureaucrat::Bureaucrat()	{
 }
 
 Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name( name )	{
-
 	if ( grade <= 0 )
 		throw Bureaucrat::GradeTooHighException();
-	if ( grade > 150 )
+	if ( grade > GRADE_LIMIT )
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade = grade ;
 	std::cout << "Bureaucrat: constructor called [ name: " << this->getName() << "] [ grade: " << this->getGrade() << " ]" << std::endl;
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat & ref )	{
-	( void )ref;
+Bureaucrat::Bureaucrat( const Bureaucrat & ref ) : _name( ref.getName() ){
+	this->_grade = ref.getGrade();
 	std::cout << "Bureaucrat: copy constructor called" << std::endl;
 }
 
@@ -57,9 +56,8 @@ unsigned int	Bureaucrat::getGrade( void )	const {
 }
 
 void	Bureaucrat::upGrade( void )	{
-
 	if ( !(this->getGrade() - 1) )	{
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 		return ;
 	}
 	this->_grade--;
@@ -67,13 +65,33 @@ void	Bureaucrat::upGrade( void )	{
 }
 
 void	Bureaucrat::downGrade( void )	{
-
-	if (this->getGrade() == GRADE_LIMIT ) 	{
-		throw Bureaucrat::GradeTooHighException();
+	if (this->getGrade() == GRADE_LIMIT )	{
+		throw Bureaucrat::GradeTooLowException();
 		return ;
 	}
 	this->_grade++;
 	std::cout << "DOWNGRADE::Bureaucrat: " <<  this->getName() << " has been successfully been downgraded to rank [ " << this->getGrade() << " ]" << std::endl;
+}
+
+void	Bureaucrat::signForm( Form & toSign ) const	{
+	try	{
+		toSign.beSigned( *this );
+		std::cout << this->getName() << " signed " << toSign.getName() << std::endl;
+	}
+	catch(const std::exception& e)	{
+		std::cerr << this->getName() << " couldn't sign " << toSign.getName() << " because " << e.what() <<  std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm( Form & toExec ) const	{
+	try	{
+		toExec.execute( *this );
+	}
+	catch	( const std::exception & e)	{
+		std::cerr << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->getName() << " executed " << toExec.getName() << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream & out, const Bureaucrat & B )	{

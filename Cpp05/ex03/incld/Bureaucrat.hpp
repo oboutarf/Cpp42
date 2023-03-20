@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 16:10:00 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/17 11:53:20 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:30:38 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <exception>
 
 # define GRADE_LIMIT 150
+
+# include "Form.hpp"
+class	Form;
 
 class	Bureaucrat	{
 
@@ -33,8 +36,10 @@ public:
 	Bureaucrat &		operator=( const Bureaucrat & rhs );
 	std::string const &	getName()	const ;
 	unsigned int 		getGrade()	const ;
-	void				downGrade();
 	void				upGrade();
+	void				downGrade();
+	void				signForm( Form & toSign ) const	;
+	void				executeForm( Form & toExec ) const	;
 
 private:
 	std::string	const	_name;

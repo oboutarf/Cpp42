@@ -1,33 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PrintTypes.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 17:14:42 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/19 16:15:44 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/20 18:00:35 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/20 20:07:43 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+# include "Convert.hpp"
 
-int	main( void )	{
-
-	try {
-		Bureaucrat	Boss( "Boss", 1 );
-		Bureaucrat	Slave( "Slave", 150 );
-		Boss.upGrade();
-		for ( int i = 0; i < 149; i++)
-			Slave.upGrade();
-		std::cout << Slave ;
-		std::cout << Boss ;
-		Bureaucrat invalidBureaucrat( "invalid", 0 );
-	}
-	catch ( std::exception & e ) {
-		std::cerr << e.what() << std::endl;
-	}
-
-	return (0);
+void	Convert::printTypes( void )	{
 
 }

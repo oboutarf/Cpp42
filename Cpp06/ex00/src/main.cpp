@@ -5,29 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 17:14:42 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/19 16:15:44 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/17 09:41:17 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/20 20:08:26 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Convert.hpp"
 
-int	main( void )	{
+#include <typeinfo>
 
-	try {
-		Bureaucrat	Boss( "Boss", 1 );
-		Bureaucrat	Slave( "Slave", 150 );
-		Boss.upGrade();
-		for ( int i = 0; i < 149; i++)
-			Slave.upGrade();
-		std::cout << Slave ;
-		std::cout << Boss ;
-		Bureaucrat invalidBureaucrat( "invalid", 0 );
-	}
-	catch ( std::exception & e ) {
-		std::cerr << e.what() << std::endl;
+int	main( int ac, char **av )	{
+	if ( ac != 2 )	{
+		return std::cerr << "Converter: invalid number of arguments" << std::endl, EXIT_FAILURE ;
 	}
 
-	return (0);
+	std::string arg = av[1];
+	Convert	converter( arg );
 
+	converter.detectType();
+	converter.convertTypes();
+	converter.printTypes();
+
+	return ( EXIT_SUCCESS );
 }

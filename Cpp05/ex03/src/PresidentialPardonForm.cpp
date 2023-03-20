@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 00:49:34 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/19 17:07:13 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/19 17:09:41 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,4 @@ void	PresidentialPardonForm::execute( Bureaucrat const & executor )	{
 	else
 		throw Form::GradeTooLowException();
 }
+

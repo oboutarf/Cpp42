@@ -6,15 +6,11 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 17:16:01 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/14 22:36:50 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/19 14:43:30 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-// ShrubberyCreationForm.[{h, hpp},cpp],
-//  RobotomyRequestForm.[{h, hpp},cpp],
-// PresidentialPardonForm.[{h, hpp},cpp]
 
 char const	*Bureaucrat::GradeTooHighException::what(void) const throw()	{
 	return ("INVALID::Bureaucrat: grade is too high, try again!");
@@ -31,9 +27,9 @@ Bureaucrat::Bureaucrat()	{
 Bureaucrat::Bureaucrat( std::string const & name, int grade ) : _name( name )	{
 
 	if ( grade <= 0 )
-		throw Bureaucrat::GradeTooLowException();
-	if ( grade > GRADE_LIMIT )
 		throw Bureaucrat::GradeTooHighException();
+	if ( grade > GRADE_LIMIT )
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade = grade ;
 	std::cout << "Bureaucrat: constructor called [ name: " << this->getName() << "] [ grade: " << this->getGrade() << " ]" << std::endl;
 }
@@ -63,7 +59,7 @@ unsigned int	Bureaucrat::getGrade( void )	const {
 void	Bureaucrat::upGrade( void )	{
 
 	if ( !(this->getGrade() - 1) )	{
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 		return ;
 	}
 	this->_grade--;
@@ -73,7 +69,7 @@ void	Bureaucrat::upGrade( void )	{
 void	Bureaucrat::downGrade( void )	{
 
 	if (this->getGrade() == GRADE_LIMIT ) 	{
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 		return ;
 	}
 	this->_grade++;
