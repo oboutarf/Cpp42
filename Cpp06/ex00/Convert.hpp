@@ -6,12 +6,19 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 09:42:44 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/20 22:19:45 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:28:23 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERT_HPP
 # define CONVERT_HPP
+
+# include <iostream>
+# include <string>
+# include <iomanip>
+# include <cstdlib>
+# include <ctype.h>
+# include <limits>
 
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
@@ -21,6 +28,10 @@
 
 # define COMA '.'
 # define FLOATER 'f'
+# define NEG '-'
+# define POS '+'
+
+# define OVERFLOW 0
 
 # define INT 0
 # define CHAR 1
@@ -29,10 +40,6 @@
 
 # define ERROR 42
 
-# include <iostream>
-# include <string>
-# include <ctype.h>
-# include <limits>
 
 class Convert	{
 
@@ -48,12 +55,22 @@ public:
 	int		detectChar( void );
 	int		detectFloat( void );
 	int		detectDouble( void );
+	int 	detectScience( void );
 //	convert
 	void	intConvert( void );
+	void	charConvert( void );
+	void	floatConvert( void );
+	void	doubleConvert( void );
+//	print
+	void	printInt( void );
+	void	printChar( void );
+	void	printFloat( void );
+	void	printDouble( void );
 //	central
 	int		detectType( void );
-	void	printTypes( void );
 	void	convertTypes( void );
+	void	errorInput( int key );
+	void	destroyConvert( void );
 
 private:
 // 	private attributes
