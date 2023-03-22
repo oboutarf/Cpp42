@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 09:42:44 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 12:22:14 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:14:36 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,13 @@ public:
 	void	floatConvert( void );
 	void	doubleConvert( void );
 //	print
+	void	printNan( void );
 	void	printInt( void );
 	void	printChar( void );
 	void	printFloat( void );
 	void	printDouble( void );
+	void	printNegInfinity( void );
+	void	printPosInfinity( void );
 //	central
 	int		detectType( void );
 	void	convertTypes( void );

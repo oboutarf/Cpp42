@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:33 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 12:19:20 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:08:27 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	Convert::charConvert( void )	{
 }
 
 void	Convert::doubleConvert( void )	{
-	this->_toDouble = strtod(this->_arg.c_str(), NULL );
+	// this->_toDouble = strtod(this->_arg.c_str(), NULL );
+	sscanf( this->_arg.c_str(), "%lf", &this->_toDouble );
 	this->printDouble();
 
 }

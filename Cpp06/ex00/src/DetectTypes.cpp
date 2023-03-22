@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:52:19 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 13:17:59 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:16:39 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 /* with this type */
 	/* end of transmission. @ */
 int	Convert::detectScience( void )	{
-	// if ( !this->_arg.compare( "-inf" ) )
-	// if ( !this->_arg.compare( "+inf" ) )
-	// if ( !this->_arg.compare( "-inff" ) )
-	// if ( !this->_arg.compare( "+inff" ) )
-	// if ( !this->_arg.compare( "nan" ) )
+	if ( !this->_arg.compare( "nan" ) || !this->_arg.compare( "nanf" ))
+		this->printNan();
+	if ( !this->_arg.compare( "-inf" ) || !this->_arg.compare( "-inff" ))
+		this->printNegInfinity();
+	if ( !this->_arg.compare( "+inf" ) || !this->_arg.compare( "+inff" ) \
+		|| !this->_arg.compare( "inff" ) || !this->_arg.compare( "inf" ) )
+		this->printPosInfinity();
 	return 1;
 }
 

@@ -6,11 +6,32 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:35 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 13:17:46 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:15:35 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Convert.hpp"
+
+void	Convert::printNan( void )	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+}
+
+void	Convert::printNegInfinity( void )	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: -inf" << std::endl;
+		std::cout << "double: -inff" << std::endl;
+}
+
+void	Convert::printPosInfinity( void )	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: +inff" << std::endl;
+		std::cout << "double: +inf" << std::endl;
+}
 
 int	setPrecision( unsigned long long int *prec )	{
 	std::cout << "converter: enter float & double precision, it has to be <8:  " << std::endl;
@@ -92,7 +113,7 @@ void	Convert::printDouble( void )	{
 		else
 			std::cout << "int: " << static_cast<int>( this->_toDouble ) << std::endl;
 		std::cout << "float: " << std::fixed << std::setprecision(prec) << static_cast<float>(this->_toDouble) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(prec) << static_cast<double>(this->_toDouble) << std::endl;
+		std::cout << "double: "  << this->_toDouble << std::endl;
 	}
 	else
 		std::cout << "converter: { error } please enter a value in the ascii table if you want to convert a 'char' type" << std::endl;
