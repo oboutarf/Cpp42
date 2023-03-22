@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DetectTypes.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:52:19 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 01:13:36 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/03/22 13:17:59 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	Convert::detectScience( void )	{
 }
 
 int	Convert::detectChar( void )	{
-	if ( this->_arg.size() == 1 && isascii( this->_arg[0] ) )
+	if ( this->_arg.size() == 1 && isascii( this->_arg[0] ) && !isdigit( this->_arg[0] ) )
 		return FOUND ;
 	return NOT_FOUND ;
 }

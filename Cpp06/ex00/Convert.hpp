@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 09:42:44 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/21 17:28:23 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 12:22:14 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # include <ctype.h>
 # include <limits>
 
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
-
+# define EXIT_SUCCESS 0
+# define EXIT_FAILURE 1
+# define SUCCESS 1
+# define FAIL 0
 # define NOT_FOUND 0
 # define FOUND 1
 
@@ -32,7 +33,6 @@
 # define POS '+'
 
 # define OVERFLOW 0
-
 # define INT 0
 # define CHAR 1
 # define DOUBLE 2

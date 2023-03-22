@@ -1,8 +1,5 @@
 {
     "files.associations": {
-        "string_view": "cpp",
-        "limits": "cpp",
-        "ostream": "cpp",
         "*.tcc": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",
@@ -21,12 +18,15 @@
         "iosfwd": "cpp",
         "iostream": "cpp",
         "istream": "cpp",
+        "limits": "cpp",
         "new": "cpp",
         "numbers": "cpp",
+        "ostream": "cpp",
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "string": "cpp",
+        "string_view": "cpp",
         "system_error": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp"

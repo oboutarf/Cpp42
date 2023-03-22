@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ConvertTypes.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:33 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 01:15:00 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/03/22 12:19:20 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	Convert::charConvert( void )	{
 
 void	Convert::doubleConvert( void )	{
 	this->_toDouble = strtod(this->_arg.c_str(), NULL );
-	this->printFloat();
+	this->printDouble();
 
 }
 
