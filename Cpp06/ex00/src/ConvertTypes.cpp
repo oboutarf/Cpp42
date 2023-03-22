@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ConvertTypes.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:33 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/21 17:29:42 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:15:00 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ void	Convert::intConvert( void )	{
 
 void	Convert::floatConvert( void )	{
 	this->_toFloat = strtof( this->_arg.c_str(), NULL );
-	std::cout << this->_toFloat << std::setprecision(1) << "f" << std::endl; 
+	this->printFloat();
 }
 
 void	Convert::charConvert( void )	{
 	this->_toChar = this->_arg[0];
+	this->printChar();
 }
 
 void	Convert::doubleConvert( void )	{
 	this->_toDouble = strtod(this->_arg.c_str(), NULL );
-	std::cout << this->_toDouble << std::setprecision(1) << std::endl; 
+	this->printFloat();
+
 }
 
 

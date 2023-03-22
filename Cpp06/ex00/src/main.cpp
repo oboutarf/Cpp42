@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 09:41:17 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/21 17:31:29 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:10:03 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
-#include <typeinfo>
+# include <typeinfo>
+# include <cmath>
+
 
 int	main( void )	{
 	std::cout << std::endl;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DetectTypes.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:52:19 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/21 17:32:25 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/22 01:13:36 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 /* with this type */
 	/* end of transmission. @ */
 int	Convert::detectScience( void )	{
+	// if ( !this->_arg.compare( "-inf" ) )
+	// if ( !this->_arg.compare( "+inf" ) )
+	// if ( !this->_arg.compare( "-inff" ) )
+	// if ( !this->_arg.compare( "+inff" ) )
+	// if ( !this->_arg.compare( "nan" ) )
 	return 1;
 }
 
 int	Convert::detectChar( void )	{
-	if ( this->_arg.size() == 1 && isalpha( this->_arg[0] ) )
+	if ( this->_arg.size() == 1 && isascii( this->_arg[0] ) )
 		return FOUND ;
 	return NOT_FOUND ;
 }
@@ -95,7 +100,7 @@ int	Convert::detectType( void )	{
 	}
 	else
 	{
-		std::cerr << "Convert: (error) we only treat conversion for { INT_TYPE: 79, CHAR_TYPE: 0, DOUBLE_TYPE: 79.0, FLOAT_TYPE: 79.0f }" << std::endl;
+		std::cerr << "Convert: { error } we only treat conversion for { (INT_TYPE) (CHAR_TYPE) (DOUBLE_TYPE) (FLOAT_TYPE) }" << std::endl;
 		return 6;
 	}
 }
