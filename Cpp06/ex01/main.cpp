@@ -6,13 +6,13 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:23:23 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 19:33:05 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:41:41 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
 
-Data*		deserialize(uintptr_t raw)	{
+Data*		deserialize( uintptr_t raw )	{
 	return reinterpret_cast<Data *>( raw ) ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 18:00:35 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/23 20:31:05 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:49:58 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	Convert::printInt( void )	{
 	}
 	if ( this->_display[ INT ] == true )
 	{
-		if ( isascii( this->_toInt ) && this->_toInt )
+		if ( isascii( this->_toInt ) && this->_toInt >= 32 && this->_toInt != 127 )
 			std::cout << "char: " << "'" << static_cast<char>( this->_toInt ) << "'" << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;
@@ -112,11 +112,14 @@ int	Convert::printFloat( void )	{
 	}
 	if ( this->_display[ FLOAT ] == true )
 	{
-		if ( isascii( this->_toFloat ) && this->_toFloat )
+		if ( isascii( this->_toFloat ) && this->_toFloat && this->_toFloat >= 32 && this->_toFloat != 127 )
 			std::cout << "char: " << "'" << static_cast<char>( this->_toFloat ) << "'" << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(this->_toFloat) << std::endl;
+		if ( this->_toFloat < std::numeric_limits<int>::min() || this->_toFloat > std::numeric_limits<int>::max() )
+			std::cout << "int: Non displayable" << std::endl;
+		else
+			std::cout << "int: " << static_cast<int>(this->_toFloat) << std::endl;
 		std::cout << "float: " << std::fixed << std::setprecision(prec) << this->_toFloat << "f" << std::endl;
 		std::cout << "double: " << std::fixed << std::setprecision(prec) << static_cast<double>(this->_toFloat) << std::endl;
 		return SUCCESS ;
@@ -139,7 +142,7 @@ int	Convert::printDouble( void )	{
 	}
 	if ( this->_display[ DOUBLE ] == true )
 	{
-		if ( isascii( this->_toDouble ) && this->_toDouble )
+		if ( isascii( this->_toDouble ) && this->_toDouble && this->_toDouble >= 32 && this->_toDouble != 127 )
 			std::cout << "char: '" << static_cast<char>( this->_toDouble ) << "'" << std::endl;
 		else
 			std::cout << "char: Non displayable" << std::endl;

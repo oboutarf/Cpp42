@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:48:25 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 23:58:04 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/23 21:37:47 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Base	{	public: virtual ~Base();	};
 class	A : public Base {};
 class	B : public Base {};
 class	C : public Base {};
+class	WrongClass : public Base {};
 
 // Elle crée aléatoirement une instance de A, B ou C et la retourne en tant que pointeur sur
 // Base. Utilisez ce que vous souhaitez pour l’implémentation du choix aléatoire.

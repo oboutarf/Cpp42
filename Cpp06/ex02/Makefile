@@ -6,13 +6,15 @@
 #    By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:11:44 by oboutarf          #+#    #+#              #
-#    Updated: 2023/03/22 19:47:03 by oboutarf         ###   ########.fr        #
+#    Updated: 2023/03/23 21:31:22 by oboutarf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	baseType
 
-SRC			=	main.cpp
+SRC			=	main.cpp \
+				Identity.cpp \
+				Generate.cpp
 
 OBJS		=	$(SRC:.cpp=.o)
 
