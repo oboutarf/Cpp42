@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 17:52:19 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/22 18:16:39 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:14:31 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 	/* end of transmission. @ */
 int	Convert::detectScience( void )	{
 	if ( !this->_arg.compare( "nan" ) || !this->_arg.compare( "nanf" ))
-		this->printNan();
+		return this->printNan(), SUCCESS ;
 	if ( !this->_arg.compare( "-inf" ) || !this->_arg.compare( "-inff" ))
-		this->printNegInfinity();
+		return this->printNegInfinity(), SUCCESS ;
 	if ( !this->_arg.compare( "+inf" ) || !this->_arg.compare( "+inff" ) \
 		|| !this->_arg.compare( "inff" ) || !this->_arg.compare( "inf" ) )
-		this->printPosInfinity();
-	return 1;
+		return this->printPosInfinity(), SUCCESS ;
+	return FAIL ;
 }
 
 int	Convert::detectChar( void )	{
@@ -102,7 +102,7 @@ int	Convert::detectType( void )	{
 	}
 	else
 	{
-		std::cerr << "Convert: { error } we only treat conversion for { (INT_TYPE) (CHAR_TYPE) (DOUBLE_TYPE) (FLOAT_TYPE) }" << std::endl;
+		std::cerr << std::endl << "converter: { error } we only treat scalar conversion for { (INT_TYPE) (CHAR_TYPE) (DOUBLE_TYPE) (FLOAT_TYPE) }" << std::endl;
 		return 6;
 	}
 }
