@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:29:09 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/23 21:40:52 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/23 23:21:55 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	identify( Base & p )	{
 	}
 }
 
-void	identify( Base * p )	{
+void	identify( Base * p )	{ // if null go to the next check
 	if ( A* a = dynamic_cast<A*>( p ) )	{
 		std::cout << "baseType: hello i'm base (a) " << std::endl;
 		return ;

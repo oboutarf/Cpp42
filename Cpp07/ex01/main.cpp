@@ -6,21 +6,23 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/03/23 23:14:41 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:00:23 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
-template <class T> void	func( T& val )	{
+template <class T> void	func( T& const val )	{
 	val %= 2;
 }
 
+
 int main( void ) {
-	int arg[4] = {4, 4, 3, 2};
+	int arg[4] = { 4, 4, 3, 2 };
 	iter(arg, 4, func );
-	for (int i = 0; i < 4; i++)
+	for ( int i = 0; i < 4; i++ )
 		std::cout << arg[i] << std::endl;
+	return ( 0 );
+
 	return 0;
 }
-

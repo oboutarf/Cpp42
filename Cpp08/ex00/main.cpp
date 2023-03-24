@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/23 22:04:20 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/24 12:47:35 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/24 21:36:53 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/24 22:32:38 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
 
-#include <iostream>
+#include "easyfind.hpp"
 
-template <class T> T & min( T& a, T& b )	{
-	return a < b ? a : b ;
+int main () {
+	int	tabint[] = { 1, 2, 213, 333, 797 };
+	std::list<int>	list(tabint, tabint+5 );
+	easyfind( list, 99 );
+
+	return 0;
+
 }
-
-template <class T> T & max( T& a, T& b )	{
-	return a > b ? a : b ;
-}
-
-template <class T> void swap( T& a, T& b )	{
-	T c(a);
-	a = b;
-	b = c;
-}
-
-#endif
