@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 10:58:50 by oscobou           #+#    #+#             */
-/*   Updated: 2023/03/26 05:19:42 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/26 05:35:36 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int, char**)	{
 	std::cout << "STL Container: container longest span is: " << contain.longestSpan() << std::endl;
 	std::cout << "STL Container: container shortest span is: " << contain.shortestSpan() << std::endl;
 	try	{
-		int a[9] = { 2, 5, 8, 11, 14, 12, 2, 3, 3 };
+		int a[2] = { 2, 5 };
 		contain.insertContain(a);
 	}
 	catch ( std::overflow_error &e )	{

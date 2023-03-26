@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 11:09:47 by oscobou           #+#    #+#             */
-/*   Updated: 2023/03/26 05:30:27 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/26 05:35:28 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,11 @@ void	Span::addNumber( int a )	{
 
 void		Span::insertContain( int *a )	{
 	unsigned int	c = 0;
-	unsigned int i = this->getSize();
-	for (; i < this->getSizeMax() && a[c]; i++ )	{
+	for ( unsigned int i = this->getSize(); i < this->getSizeMax(); i++ )	{
+		if ( i + 1 == this->getSizeMax() && c + 1 != sizeof(int*)/sizeof(a[0]))
+			throw std::overflow_error("STL Container: can't add more elements max size is ");
 		this->_contain.insert(this->_contain.begin() + i, a[c]);
 		c++;
-	}
-	if ( i == this->getSizeMax() && c == sizeof(int *)/sizeof(a[0]))	{
-		std::cout << "Can't add more values" << std::endl;
 	}
 }
 // Inserting the value 100 at position 3(0-based indexing) in the vector
