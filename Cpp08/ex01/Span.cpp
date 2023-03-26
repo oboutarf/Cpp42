@@ -6,11 +6,12 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 11:09:47 by oscobou           #+#    #+#             */
-/*   Updated: 2023/03/26 05:35:28 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/26 13:19:16 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <exception>
 
 Span::Span()	{
 	this->_size = 0;
@@ -52,30 +53,34 @@ void	Span::addNumber( int a )	{
 
 void		Span::insertContain( int *a )	{
 	unsigned int	c = 0;
-	for ( unsigned int i = this->getSize(); i < this->getSizeMax(); i++ )	{
+	for ( unsigned int i = this->getSize(); i < this->getSizeMax() && a[c]; i++ )	{
 		if ( i + 1 == this->getSizeMax() && c + 1 != sizeof(int*)/sizeof(a[0]))
 			throw std::overflow_error("STL Container: can't add more elements max size is ");
 		this->_contain.insert(this->_contain.begin() + i, a[c]);
+		this->_size--;
 		c++;
 	}
 }
-// Inserting the value 100 at position 3(0-based indexing) in the vector
-// vector_name.insert(vector_name.begin() + 3, 100);
 
 unsigned int	Span::shortestSpan()	{
+	if ( this->getSize() < 2)
+		throw std::underflow_error("STL Container: size has to be minimum two if you want to check the span and you size is ");
 	Span cpy( *this );
 	std::sort( cpy._contain.begin(), cpy._contain.end() );
 	std::vector<int>::iterator it = cpy._contain.begin();
 	int	shortestSpan = *(it + 1) - *it;
 	int	res = 0;
 	for (; it + 1 != cpy._contain.end(); *it++ )	{
-		if ( *(it + 1) - *it < shortestSpan )
+		res = *(it + 1) - *it;
+		if ( res < shortestSpan )
 				shortestSpan = res;
 	}
 	return shortestSpan ;
 }
 
 unsigned int	Span::longestSpan()			const {
+	if ( this->getSize() < 2)
+		throw std::underflow_error("STL Container: size has to be minimum two if you want to check the span and you size is ");
 	unsigned int res = *std::max_element( this->_contain.begin(), this->_contain.end() ) \
 		- *std::min_element( this->_contain.begin(), this->_contain.end() );
 	return res;
