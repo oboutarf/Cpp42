@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/28 00:19:10 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/28 01:28:31 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,12 @@ void	BitcoinExchange::makePair( std::string l )	{
 }
 
 unsigned int		BitcoinExchange::checkDateForm( std::string d )	{
-	int			year;
-	int			month;
-	int			day;
 
 	int	yr = d.find('-');
-	sscanf(d.substr(0, yr).c_str(), "%d", &year);
-	int mth = d.find('-', yr + 1);
-	sscanf(d.substr(yr + 1, mth).c_str(), "%d", &month);
-	int dy = d.find('-');
-	sscanf(d.substr(mth, dy).c_str(), "%d", &day);
-
+	std::string year = d.substr(0, yr);
+	int mth = d.find('-', ++yr);
+	std::string month = d.substr(yr, mth - yr);
+	std::string day = d.substr(++mth, d.size());
 	std::cout << year << "-" << month << "-" << day << std::endl;
 	return (1);
 }
