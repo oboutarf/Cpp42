@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/28 01:28:31 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/03/29 00:43:09 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
 # include <exception> 
+# include <algorithm> 
 
 BitcoinExchange::BitcoinExchange()	{}
 
@@ -30,15 +31,30 @@ void	BitcoinExchange::makePair( std::string l )	{
 	this->_data[l.substr(0, f)] = strtof(l.substr(f + 1, l.size()).c_str(), NULL);
 }
 
-unsigned int		BitcoinExchange::checkDateForm( std::string d )	{
+unsigned int	BitcoinExchange::checkDateDigits( std::string d, int t )	{
+	for (unsigned int i = 0; i + 1 < d.size(); i++)
+		if (!isdigit(d.c_str()[i]))
+			return ERROR;
+	if (t == YEAR && (d.size() != 4 || (atoi(d.c_str()) < 0)))
+		return ERROR;
+	else if (t == MONTH && (d.size() != 2 || (atoi(d.c_str()) < 0 || atoi(d.c_str()) > 12)))
+		return ERROR;
+	else if (t == DAY &&  (d.size() != 2 || (atoi(d.c_str()) < 0 || atoi(d.c_str()) > 31)))
+		return ERROR;
+	return SUCCESS;
+}
 
+unsigned int		BitcoinExchange::checkDateForm( std::string d )	{
 	int	yr = d.find('-');
 	std::string year = d.substr(0, yr);
 	int mth = d.find('-', ++yr);
 	std::string month = d.substr(yr, mth - yr);
 	std::string day = d.substr(++mth, d.size());
-	std::cout << year << "-" << month << "-" << day << std::endl;
-	return (1);
+	if (!this->checkDateDigits(year, YEAR) \
+	|| !this->checkDateDigits(month, MONTH) \
+	|| !this->checkDateDigits(day, DAY))
+		return ERROR;
+	return SUCCESS;
 }
 
 void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
@@ -46,6 +62,9 @@ void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
 	if (f == std::string::npos)
 		throw std::invalid_argument("btc: Error: bad input");
 	std::string	date = l.substr(0, f);
+	date.erase(remove_if(date.begin(), date.end(), isspace), date.end());
+	if ((l.size() - (f + 1)) <= 1)ko
+		throw std::invalid_argument("btc: Error: no argument for value");
 	float		val = strtof(l.substr(f + 1, l.size()).c_str(), NULL);
 	if (val < 0)
 		throw std::underflow_error("btc: Error: not a positive number");
@@ -53,14 +72,31 @@ void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
 		throw std::overflow_error("btc: Error: number is too large");
 	if (!this->checkDateForm(date))
 		throw std::invalid_argument("btc: Error: invalid date format");
-	// this->searchDataBase(date);
+	std::string dDR = this->searchDataBase(date);
+	std::cout << dDR << std::endl;
 	(void)p;
 }
 
 std::string	BitcoinExchange::searchDataBase( std::string d )	{
-	return d;
-}
 
+	std::map<std::string, float>::iterator	it = this->_data.begin();
+	std::map<std::string, float>::iterator	ite = this->_data.end();
+	std::string	near;
+	int	yr = d.find('-');
+	std::string year = d.substr(0, yr);
+	int mth = d.find('-', ++yr);
+	std::string month = d.substr(yr, mth - yr);
+	std::string day = d.substr(++mth, d.size());
+
+
+
+
+
+	return it->first;
+	(void)ite;
+
+}
+// std::cout << "[" << it->first << "]" << "=> " << d << "     " << near << std::endl;
 void	BitcoinExchange::printClass()	{
 	std::map<std::string, float>::iterator	it = this->_data.begin();
 	std::map<std::string, float>::iterator	ite = this->_data.end();
