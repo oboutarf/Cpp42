@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/29 21:06:57 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:28:29 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,10 @@ void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
 	if (!this->checkDateForm(date))
 		throw std::invalid_argument("btc: Error: invalid date format");
 	std::map<std::string, float>::iterator dDR = this->searchDataBase(date);
-	if (dDR == this->_data.end())
-		std::cout << "btc: value at line: " << p << " not found in db." << std::endl;
-	else
-		std::cout << "btc: at the date of "<< dDR->first << " rate of bit coin was: [" << dDR->second << "]." << std::endl;
+	std::cout << "btc: [" << date << "] =>" << val << " = " << val * dDR->second << std::endl;
 	(void)p;
 }
+
 
 std::map<std::string, float>::iterator	BitcoinExchange::searchDataBase( std::string d )	{
 	std::map<std::string, float>::iterator	it = this->_data.begin();
@@ -106,13 +104,12 @@ void	BitcoinExchange::printClass()	{
 }
 
 
-
-// $> ./btc input.txt
 // 2011-01-03 => 3 = 0.9
 // 2011-01-03 => 2 = 0.6
 // 2011-01-03 => 1 = 0.3
 // 2011-01-03 => 1.2 = 0.36
 // 2011-01-09 => 1 = 0.32
-
+// Error: not a positive number.
 // Error: bad input => 2001-42-42
 // 2012-01-11 => 1 = 7.1
+// Error: too large a number.
