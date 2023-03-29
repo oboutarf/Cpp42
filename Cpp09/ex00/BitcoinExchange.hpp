@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:13 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/28 22:43:34 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:27:43 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ public:
 	BitcoinExchange( const BitcoinExchange & ref );
 	~BitcoinExchange();
 
-	BitcoinExchange &	operator=( const BitcoinExchange & rhs );
+	BitcoinExchange &						operator=( const BitcoinExchange & rhs );
 
-	void				makePair( std::string l );
-	void				printBitcoinRate( std::string l, int p );
-	std::string			searchDataBase( std::string d );
-	unsigned int		checkDateForm( std::string d );
-	unsigned int		checkDateDigits( std::string d, int t );
-	void				printClass();
+	std::map<std::string, float>::iterator	searchDataBase( std::string d );
+	unsigned int							checkDateForm( std::string d );
+	unsigned int							checkDateDigits( std::string d, int t );
+	void									printBitcoinRate( std::string l, int p );
+	void									makePair( std::string l );
+	void									printClass();
 
 private:
 	std::map<std::string, float>	_data;

@@ -6,23 +6,19 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/29 00:43:09 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/29 21:06:57 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-# include <exception> 
-# include <algorithm> 
+# include <exception>
+# include <algorithm>
 
 BitcoinExchange::BitcoinExchange()	{}
 
-BitcoinExchange::BitcoinExchange( const BitcoinExchange & ref )	{
-	(void)ref;
-}
+BitcoinExchange::BitcoinExchange( const BitcoinExchange & ref )	{(void)ref;}
 
-BitcoinExchange& BitcoinExchange::operator=( const BitcoinExchange & ref )	{
-	(void)ref; return *this;
-}
+BitcoinExchange& BitcoinExchange::operator=( const BitcoinExchange & ref )	{(void)ref; return *this;}
 
 BitcoinExchange::~BitcoinExchange()	{}
 
@@ -63,7 +59,7 @@ void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
 		throw std::invalid_argument("btc: Error: bad input");
 	std::string	date = l.substr(0, f);
 	date.erase(remove_if(date.begin(), date.end(), isspace), date.end());
-	if ((l.size() - (f + 1)) <= 1)ko
+	if ((l.size() - (f + 1)) <= 1)
 		throw std::invalid_argument("btc: Error: no argument for value");
 	float		val = strtof(l.substr(f + 1, l.size()).c_str(), NULL);
 	if (val < 0)
@@ -72,31 +68,34 @@ void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
 		throw std::overflow_error("btc: Error: number is too large");
 	if (!this->checkDateForm(date))
 		throw std::invalid_argument("btc: Error: invalid date format");
-	std::string dDR = this->searchDataBase(date);
-	std::cout << dDR << std::endl;
+	std::map<std::string, float>::iterator dDR = this->searchDataBase(date);
+	if (dDR == this->_data.end())
+		std::cout << "btc: value at line: " << p << " not found in db." << std::endl;
+	else
+		std::cout << "btc: at the date of "<< dDR->first << " rate of bit coin was: [" << dDR->second << "]." << std::endl;
 	(void)p;
 }
 
-std::string	BitcoinExchange::searchDataBase( std::string d )	{
-
+std::map<std::string, float>::iterator	BitcoinExchange::searchDataBase( std::string d )	{
 	std::map<std::string, float>::iterator	it = this->_data.begin();
 	std::map<std::string, float>::iterator	ite = this->_data.end();
-	std::string	near;
-	int	yr = d.find('-');
-	std::string year = d.substr(0, yr);
-	int mth = d.find('-', ++yr);
-	std::string month = d.substr(yr, mth - yr);
-	std::string day = d.substr(++mth, d.size());
-
-
-
-
-
-	return it->first;
-	(void)ite;
-
+	std::map<std::string, float>::iterator	closest = it;
+	if (it->first > d)
+		return it;
+	it = this->_data.find(d);
+	if (it != ite)
+		return it;
+	for (it = this->_data.begin(); it != ite; it++)	{
+		if (it->first > closest->first && closest->first < d)
+			closest = it;
+		if (closest->first > d)
+			break ;
+	}
+	if (it != ite)
+		return --closest;
+	return --ite;
 }
-// std::cout << "[" << it->first << "]" << "=> " << d << "     " << near << std::endl;
+
 void	BitcoinExchange::printClass()	{
 	std::map<std::string, float>::iterator	it = this->_data.begin();
 	std::map<std::string, float>::iterator	ite = this->_data.end();
@@ -115,9 +114,5 @@ void	BitcoinExchange::printClass()	{
 // 2011-01-03 => 1.2 = 0.36
 // 2011-01-09 => 1 = 0.32
 
-// Error: not a positive number.
-
 // Error: bad input => 2001-42-42
 // 2012-01-11 => 1 = 7.1
-
-// Error: too large a number.
