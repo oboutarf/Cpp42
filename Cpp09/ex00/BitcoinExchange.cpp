@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/29 23:28:29 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:32:13 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	BitcoinExchange::printClass()	{
 // 2011-01-03 => 1 = 0.3
 // 2011-01-03 => 1.2 = 0.36
 // 2011-01-09 => 1 = 0.32
-// Error: not a positive number.
+// Error: not a positive number.!!!
 // Error: bad input => 2001-42-42
 // 2012-01-11 => 1 = 7.1
 // Error: too large a number.
