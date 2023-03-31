@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:05 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/31 03:48:55 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:08:34 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 # include <iostream>
 # include <cstdlib>
 # include <vector>
+# include <deque>
 
-typedef std::vector<std::pair<int, int> > vPair;
-typedef std::vector<int> vCt;
+typedef std::vector<std::pair<int, int> >	vPair;
+typedef std::deque<std::pair<int, int> >	dPair;
+typedef std::vector<int>					vCt;
+typedef std::deque<int>						dCt;
 
-void	printVec(vCt vec)	{
+template <typename T>void	printRes(T & vec)	{
 	std::cout << std::endl << "[ ";
-	vCt::iterator it = vec.begin();
+	typename T::iterator it = vec.begin();
 	for (size_t i = 0; it != vec.end(); it++)	{
 		std::cout << *it;
 		if (i + 1 != vec.size())
@@ -32,9 +35,9 @@ void	printVec(vCt vec)	{
 	std::cout << " ]" << std::endl << std::endl;
 }
 
-void	insertIt(vCt & vec, vPair::iterator it)	{
+template <typename T, typename U> void	insertIt(T & vec, U it)	{
 	unsigned int i = 0;
-	for (unsigned int i = 0; i < vec.size(); i++)	{
+	for (i = 0; i < vec.size(); i++)	{
 		if (vec[i] == it->first)
 			break ;
 	}
@@ -52,42 +55,60 @@ void	randGen(vCt &	vec)	{
 	}
 }
 
-void	mergePair(vPair & sort, vCt & vec, int *last, int odd)	{
+template <typename T, typename U> void	mergePair(T & sort, U & vec, int *last, int odd)	{
 	for (size_t i = 0; i < vec.size(); i += 2)	{
 		if (odd && i + 1 == vec.size())	{
 			*last = vec[i];
 			break ;
 		}
-		int A = vec[i];
-		int B = vec[i + 1];
+		int	A = vec[i];
+		int	B = vec[i + 1];
 		sort.push_back(std::make_pair(std::min(A, B), std::max(A, B)));
 	}
 	vec.clear();
-	vPair::iterator it = sort.begin();
-	vPair::iterator ite = sort.end();
+	(void)odd;
+}
+
+template <class T, typename V> void	sortIt(T & toSort, V & toInsert, int last, int odd )	{
+	typename T::iterator	it = toSort.begin();
+	typename T::iterator	ite = toSort.end();
 	std::sort(it, ite);
 	for (; it != ite; it++)	{
-		if (odd && *last >= it->first)
-			vec.push_back(*last);
+		if (odd && last >= it->first)
+			toInsert.push_back(last);
 		else
-			vec.push_back(it->first);
+			toInsert.push_back(it->first);
 	}
 }
 
 int main()
 {
-	vPair	sort(0);
+	vPair	sortv(0);
+	dPair	sortd(0);
+	vCt		vecOrig;
 	vCt		vec;
+	dCt		deq;
+
 	int	odd = vec.size() % 2;
 	int	last = 0;
-	randGen(vec);
-	mergePair(sort, vec, &last, odd);
-	while (sort.size())	{
-		insertIt(vec, sort.end() - 1);
-		sort.pop_back();
+	randGen(vecOrig);
+	vec.insert(vec.begin(), vecOrig.begin(), vecOrig.end());
+	mergePair(sortv, vec, &last, odd);
+	sortIt(sortv, vec, last, odd);
+	while (sortv.size())	{
+		insertIt(vec, sortv.end() - 1);
+		sortv.pop_back();
 	}
-	printVec(vec);
+	printRes(vec);
+	last = 0;
+	deq.insert (deq.begin(), vecOrig.begin(), vecOrig.end());
+	mergePair(sortd, deq, &last, odd);
+	sortIt(sortd, deq, last, odd);
+	while (sortd.size())	{
+		insertIt(deq, sortd.end() - 1);
+		sortd.pop_back();
+	}
+	printRes(deq);
+
 	return 0;
 }
-
-// system("shuf -i 1-1000 -n 3000 | tr \"\\n\" \" \"");
