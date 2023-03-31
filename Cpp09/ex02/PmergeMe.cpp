@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 23:41:27 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/30 14:54:42 by oboutarf         ###   ########.fr       */
+/*   Created: 2023/03/30 13:02:50 by oboutarf          #+#    #+#             */
+/*   Updated: 2023/03/30 15:15:48 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+# include "PmergeMe.hpp"
 
-RPN::RPN()	{}
+PmergeMe::PmergeMe()	{}
 
-RPN::RPN( const RPN & ref )	{ (void)ref; }
+PmergeMe::PmergeMe( const PmergeMe & ref )	{ (void)ref; }
 
-RPN &	RPN::operator=( const RPN & rhs )	{ (void)rhs; return *this; }
+PmergeMe &	PmergeMe::operator=( const PmergeMe & rhs )	{ (void)rhs; return *this; }
 
-RPN::~RPN()	{}
+PmergeMe::~PmergeMe()	{}

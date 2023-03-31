@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 23:34:42 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/29 23:37:56 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:12:56 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # define SUCCESS 1
 
 # include <iostream>
+# include <climits>
 # include <string>
 # include <stack>
+# include <cmath>
 
 class	RPN	{
 
