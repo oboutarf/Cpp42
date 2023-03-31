@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:05 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/31 20:08:34 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/03/31 22:22:08 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PmergeMe.hpp"
-# include <algorithm>
-# include <iterator>
-# include <iostream>
-# include <cstdlib>
-# include <vector>
-# include <deque>
 
 typedef std::vector<std::pair<int, int> >	vPair;
 typedef std::deque<std::pair<int, int> >	dPair;
@@ -48,7 +42,7 @@ template <typename T, typename U> void	insertIt(T & vec, U it)	{
 void	randGen(vCt &	vec)	{
 	srand((unsigned) time(NULL));
 	int	offset = 100;
-	for(int i = 0; i <= 11; i++)	{
+	for(int i = 0; i < 30; i++)	{
 		int random = offset + (rand() % 101);
 		vec.push_back(random);
 		offset++;
@@ -66,7 +60,6 @@ template <typename T, typename U> void	mergePair(T & sort, U & vec, int *last, i
 		sort.push_back(std::make_pair(std::min(A, B), std::max(A, B)));
 	}
 	vec.clear();
-	(void)odd;
 }
 
 template <class T, typename V> void	sortIt(T & toSort, V & toInsert, int last, int odd )	{
@@ -81,6 +74,20 @@ template <class T, typename V> void	sortIt(T & toSort, V & toInsert, int last, i
 	}
 }
 
+void	displayStats(vCt o, vCt v, double tV, double tD)	{
+	std::cout << "Before: ";
+	for (vCt::iterator it = o.begin(); it != o.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl << "After: ";
+	for (vCt::iterator it = v.begin(); it != v.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl << "Time to process a range of " << v.size() << " elements with std::vector<int> ";
+	std::cout << ": " << std::fixed << std::setprecision(6) << tV << " us" << std::endl;
+	std::cout << "Time to process a range of " << v.size() << " elements with std::deque<int> ";
+	std::cout << ": " << std::fixed << std::setprecision(6) << tD << " us" << std::endl;
+}
+
+
 int main()
 {
 	vPair	sortv(0);
@@ -89,18 +96,20 @@ int main()
 	vCt		vec;
 	dCt		deq;
 
-	int	odd = vec.size() % 2;
-	int	last = 0;
 	randGen(vecOrig);
+	clock_t startSort = clock();
+	int	last = 0;
 	vec.insert(vec.begin(), vecOrig.begin(), vecOrig.end());
+	int	odd = vec.size() % 2;
 	mergePair(sortv, vec, &last, odd);
 	sortIt(sortv, vec, last, odd);
 	while (sortv.size())	{
 		insertIt(vec, sortv.end() - 1);
 		sortv.pop_back();
 	}
-	printRes(vec);
+	double timeV = (double)(clock() - startSort) / CLOCKS_PER_SEC;
 	last = 0;
+	startSort = clock();
 	deq.insert (deq.begin(), vecOrig.begin(), vecOrig.end());
 	mergePair(sortd, deq, &last, odd);
 	sortIt(sortd, deq, last, odd);
@@ -108,7 +117,7 @@ int main()
 		insertIt(deq, sortd.end() - 1);
 		sortd.pop_back();
 	}
-	printRes(deq);
-
+	double timeD = (double)(clock() - startSort) / CLOCKS_PER_SEC;
+	displayStats(vecOrig, vec, timeV, timeD);
 	return 0;
 }
