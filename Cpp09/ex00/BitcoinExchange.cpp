@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/01 12:06:16 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/01 22:30:18 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ void	BitcoinExchange::printClass()	{
 }
 
 void	BitcoinExchange::makePair( std::string l )	{
-	int	f = l.find(',');
-	this->_data[l.substr(0, f)] = strtod(l.substr(f + 1, l.size()).c_str(), NULL);
+	std::size_t	dPos = l.find(',');
+	if (dPos == std::string::npos)
+		throw std::invalid_argument(DATE_ERROR_DB);
+	std::string	dDb = l.substr(0, dPos);
+	if (!this->checkDateForm(dDb))
+		throw std::invalid_argument(DATE_ERROR_DB);
+	double	rate = strtod(l.substr(dPos + 1, l.size()).c_str(), NULL);
+	this->_data[dDb] = (rate);
 }
 
 unsigned int	BitcoinExchange::checkDateDigits( std::string d, int t )	{
@@ -63,7 +69,7 @@ unsigned int		BitcoinExchange::checkDateForm( std::string d )	{
 	return SUCCESS;
 }
 
-void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
+void	BitcoinExchange::printBitcoinRate( std::string l)	{
 	std::size_t	f = l.find('|');
 	if (f == std::string::npos)
 		throw std::invalid_argument("btc: Error: bad input");
@@ -81,7 +87,6 @@ void	BitcoinExchange::printBitcoinRate( std::string l, int p )	{
 	std::map<std::string, double>::iterator dDR = this->searchDataBase(date);
 	double res = val * dDR->second;
 	std::cout << "btc: [" << date << "] => " << std::fixed << std::setprecision(2) << val << " = " << res << std::endl;
-	(void)p;
 }
 
 std::map<std::string, double>::iterator	BitcoinExchange::searchDataBase( std::string d )	{
