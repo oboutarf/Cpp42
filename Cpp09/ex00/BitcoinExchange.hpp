@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:13 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/29 20:27:43 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/01 11:56:18 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 
 	BitcoinExchange &						operator=( const BitcoinExchange & rhs );
 
-	std::map<std::string, float>::iterator	searchDataBase( std::string d );
+	std::map<std::string, double>::iterator	searchDataBase( std::string d );
 	unsigned int							checkDateForm( std::string d );
 	unsigned int							checkDateDigits( std::string d, int t );
 	void									printBitcoinRate( std::string l, int p );
@@ -46,7 +46,7 @@ public:
 	void									printClass();
 
 private:
-	std::map<std::string, float>	_data;
+	std::map<std::string, double>	_data;
 
 };
 

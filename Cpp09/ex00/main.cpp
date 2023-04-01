@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:05 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/27 21:39:37 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:06:44 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,25 @@ int	main(int ac, char** av)	{
 	std::string	line;
 	while (std::getline(in_data, line))	{
 		if (isdigit(line.c_str()[0]))
-			base.makePair(line);
+			
+void	BitcoinExchange::printClass()	{
+	std::map<std::string, double>::iterator	it = this->_data.begin();
+	std::map<std::string, double>::iterator	ite = this->_data.end();
+
+	for (; it != ite; it++ )	{
+		std::cout << it->first << ", " << it->second << std::endl;
+	}
+}
+
+void	BitcoinExchange::printClass()	{
+	std::map<std::string, double>::iterator	it = this->_data.begin();
+	std::map<std::string, double>::iterator	ite = this->_data.end();
+
+	for (; it != ite; it++ )	{
+		std::cout << it->first << ", " << it->second << std::endl;
+	}
+}
+
 	}
 	in_data.close();
 	in_input.open (av[1], std::ios::in);
