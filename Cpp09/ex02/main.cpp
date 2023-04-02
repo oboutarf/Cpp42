@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:51:57 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/01 20:03:40 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:56:47 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ typedef std::vector<std::pair<unsigned int, unsigned int> >	vPair;
 typedef std::deque<std::pair<unsigned int, unsigned int> >	dPair;
 typedef std::vector<unsigned int>					vCt;
 typedef std::deque<unsigned int>						dCt;
-// tools
+// display
 template <typename T>void	printRes(T & vec)	{
 	std::cout << std::endl << "[ ";
 	typename T::iterator it = vec.begin();
@@ -41,6 +41,16 @@ void	displayStats(vCt o, vCt v, double tV, double tD)	{
 	std::cout << ": " << tV << " µs" << std::endl;
 	std::cout << "Time to process a range of " << v.size() << " elements with std::deque<int> ";
 	std::cout << ": " << tD << " µs" << std::endl;
+}
+// tools
+bool	checkSorted(vCt v)	{
+	for (size_t i = 0; i < v.size(); i++)	{
+		if (i + 1 == v.size())
+			return true;
+		else if (v[i] > v[i + 1])
+			return false;
+	}
+	return true;
 }
 
 bool	checkDigits(char* a)	{
@@ -113,6 +123,8 @@ int main(int ac, char **av)
 	vCt		vec;
 	dCt		deq;
 
+	if (ac == 1)
+		return std::cout << "PmergeMe: [ERROR] bad number of arguments" << std::endl, 1;
 	for (int i = 1; i < ac; i++)	{
 		if (!checkDigits(av[i]))
 			return std::cout << "PmergeMe: [ERROR] detected a non-digit character in arguments" << std::endl, 1;
@@ -121,6 +133,8 @@ int main(int ac, char **av)
 			return std::cout << "PmergeMe: [ERROR] detected a overflow or value is negative" << std::endl, 1;
 		vecOrig.push_back(v);
 	}
+	if (vecOrig.size() == 1 || checkSorted(vecOrig) == true)
+		return std::cout << "PmergeMe: [ERROR] array is already sorted" << std::endl, 1;
 	unsigned int	last = 0;
 	clock_t startSort = clock();
 	vec.insert(vec.begin(), vecOrig.begin(), vecOrig.end());

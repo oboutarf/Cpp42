@@ -6,7 +6,7 @@
 /*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 23:34:42 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/03/30 15:12:56 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:43:19 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@
 
 # include <iostream>
 # include <climits>
+# include <cstring>
 # include <string>
-# include <stack>
 # include <cmath>
+# include <stack>
+# include <list>
 
 class	RPN	{
 

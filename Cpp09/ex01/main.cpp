@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:05 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/02 11:34:18 by oscobou          ###   ########.fr       */
+/*   Updated: 2023/04/02 13:43:07 by oboutarf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RPN.hpp"
-# include <cstring>
+
+template <class Type, class Container= std::list <Type> > class stack;
 
 float scanNum(char ch)	{
 	int value;
@@ -45,7 +46,7 @@ float operation(int a, int b, char op)	{
 }
 
 float	postfixEval(std::string postfix)	{
-	std::stack<float> data;
+	std::stack<float>	data;
 	std::string::iterator it;
 	int	opd = 0;
 	int a, b;
