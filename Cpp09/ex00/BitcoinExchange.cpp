@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:06 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/01 22:30:18 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:11:21 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	BitcoinExchange::makePair( std::string l )	{
 	std::size_t	dPos = l.find(',');
 	if (dPos == std::string::npos)
 		throw std::invalid_argument(DATE_ERROR_DB);
+	if (dPos + 1 == l.size())
+		throw std::invalid_argument(RATE_ERROR_DB);
 	std::string	dDb = l.substr(0, dPos);
 	if (!this->checkDateForm(dDb))
 		throw std::invalid_argument(DATE_ERROR_DB);

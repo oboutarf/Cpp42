@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:05 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/01 22:47:35 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:32:30 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main(int ac, char** av)	{
 	std::string	line;
 	while (std::getline(in_data, line))	{
 		if (isdigit(line.c_str()[0]))	{
-			try	{	base.makePair(line);	}
+			try	{	
+				base.makePair(line);
+			}
 			catch (std::exception & e)	{
 				return std::cout << e.what() << std::endl, in_data.close(), EXIT_FAILURE;
 			}

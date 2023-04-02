@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:13 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/01 22:30:09 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:12:34 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <map>
 
 # define DATE_ERROR_DB "btc: Error: invalid date format in data base"
+# define RATE_ERROR_DB "btc: Error: invalid rate has been detected in data base"
 
 # define EXIT_SUCCESS 0
 # define EXIT_FAILURE 1

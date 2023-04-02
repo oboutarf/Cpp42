@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oboutarf <oboutarf@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oscobou <oscobou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:13:05 by oboutarf          #+#    #+#             */
-/*   Updated: 2023/04/01 22:35:01 by oboutarf         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:34:18 by oscobou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ float	postfixEval(std::string postfix)	{
 	for(it = postfix.begin(); it != postfix.end(); it++)	{
 		if(isOperator(*it))	{
 			if (opd <= 1)
-				return std::cout << "ERROR" << std::endl, 0.0f;
+				throw std::invalid_argument("RPN: Error: cannot treat because input doesn't respect RPN syntax");
 			a = data.top();
 			data.pop();
 			b = data.top();
@@ -72,13 +72,28 @@ float	postfixEval(std::string postfix)	{
 int	main(int ac, char **av)	{
 	int res;
 	if (ac != 2)
-		return std::cout << "RPN: Error: bad number of arguments" << std::endl, 0;
+		return std::cout << "RPN: Error: bad number of arguments" << std::endl, EXIT_FAILURE;
 	std::string	input = av[1];
+	if (!input.size())
+		return std::cout << "RPN: Error: cannot operate empty string" << std::endl, EXIT_FAILURE;
 	char key[] = "(),.";
+	int	digit = 0;
+	for (unsigned int i = 0; i < input.size(); i++)	{
+		if (isOperand(input[i]))
+			digit++;
+	}
+	if (!digit)
+		return std::cout << "RPN: Error: cannot treat because input doesn't respect RPN syntax" << std::endl, EXIT_FAILURE;
 	if (!strpbrk (input.c_str(), key))	{
-		res = postfixEval(input);
+		try {
+			res = postfixEval(input);
+		}
+		catch (std::exception &	e)	{
+			return std::cout << e.what() << std::endl, EXIT_FAILURE;
+		}
 	}
 	else
-		return std::cout << "RPN: Error: bad input" << std::endl, 1;
+		return std::cout << "RPN: Error: bad input" << std::endl, EXIT_FAILURE;
 	std::cout << "RPN: The result is: " << res << std::endl;
+	return (EXIT_SUCCESS);
 }
